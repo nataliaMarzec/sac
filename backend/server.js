@@ -1,19 +1,26 @@
 express = require("express");
 bodyParser = require("body-parser");
-var cors = require('cors');
-
+cors = require("cors")
+var server= express();
+var morgan= require("morgan");
+server= server.use(morgan(`dev`));
+var path = require("path");
 var homes = {}
 
-
 function register(home) {
-  console.log(`registering handlers for ${home.type}`)
+  console.log(` registering handlers for ${home.type}`)
   homes[home.type] = home 
 }
 
 function init() {
-  var server = express();
-  server.use(bodyParser.json());
+  server.set('port',process.env.PORT||8889)
+  //files static
+  console.log("AQUI PUBLIC:",path.join(__dirname,`public`));
+  server.use(express.static(path.join(__dirname,`public`)));
+  server.use(express.json())
+  server.use(cors())
 
+ 
   server.use("(/:type/*)|(/:type)", (req, res, next) => {
       if (!homes[req.params.type]) {
           console.log(` home de ${req.params.type} no existe`  )
@@ -24,45 +31,52 @@ function init() {
         next()
       }
   })
+  
+  const connection = dbConnection();
 
-  server.use(cors())
-
-  server.get("/:type", (req, res) => {
-    home = homes[req.params.type]
-    home.all((allObjects) => {
-        res.json(allObjects) 
-        res.end() })       
-  })
-
-  server.get("/:type/:id", (req, res) => {
-    home = homes[req.params.type]
-    home.get(req.params.id, (myObject) => { 
-      res.json(myObject) 
-      res.end() })  
-  })
-
-  server.put("/:type", (req, res) => {
-    home = homes[req.params.type]
-    home.update(req.body)
-    res.status(204).end();  
-  })
-
-  server.post("/:type", (req, res) => {
-    home = homes[req.params.type]
-    home.insert(req.body)
-    res.status(204).end();  
-  })
-
-  server.delete("/:type/:id", (req, res) => {
-    home = homes[req.params.type]
-    home.delete(req.params.id)
-    res.status(204).end();  
+  app.get('/news', (req, res) => {
+    connection.query('SELECT * FROM proveedores', (err, result) => {
+      res.render('proveedores/proveedores', {
+        news: result
+      });
+    });
   });
 
-  server.listen(8888, () => {
-    console.log("Server running on port 8888");
+//   server.post('/proveedores', (req, res) => {
+//     const { nombre, direccion,observacion } = req.body;
+//     connection.query('INSERT INTO proveedores SET ? ',
+//       {
+//         nombre,
+//         direccion,
+//         observacion
+//       }
+//     , (err, result) => {
+//       res.redirect('/proveedores');
+//     });
+//   });
+// };
+
+
+  server.listen(server.get('port'), () => {
+    console.log(`Server on port ${server.get('port')}`);
   });
-}
+
 
 exports.init = init;
 exports.register = register;
+
+//VER https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
+
+
+// const app = express();
+
+// // settings
+// app.set('port', process.env.PORT || 3000);
+// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, '../app/views'));
+// // middlewares
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(express.static(path.join(__dirname, '../static')))
+
+// module.exports = app;

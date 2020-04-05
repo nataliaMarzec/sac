@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Trabajo Final",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nataliaMarzec/sac.git"
+  },
+  "keywords": [
+    "sql",
+    "nodejs"
+  ],
+  "author": "NataliaMarzec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nataliaMarzec/sac/issues"
+  },
+  "homepage": "https://github.com/nataliaMarzec/sac#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
+}
