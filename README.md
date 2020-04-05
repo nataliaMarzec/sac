@@ -46,5 +46,35 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 
 ## Instalaciones principales:
 
+*Base de datos 
+ Durante el curso vamos a utilizar MySql Community Edition como motor de base de datos ya que es software libre y por el otro, es un motor
+ muy utilizado a nivel industrial en sistemas productivos de tamaño chico y mediano.
+ La instalación del motor suele traer incluido un cliente de consola. También vamos a utilizar un cliente gráfico llamado MySql Workbench.
 
+ ~~~
+ sudo apt-get install mysql-server
+ sudo apt-get install mysql-workbench
+ service mysql status 
+ 
+ *Líneas de comando:
+ sudo service mysql stop
+ sudo service mysql start
+ sudo service mysql restart
+ create database sacdb;
+
+
+ *Conectarse al motor:
+ mysql -u root -proot 
+ mysql -u root -proot  -h ipdecomputadoraRemota        ----> Si el motor de bd está configurado en una computadora remota
+ 
+ *Se genera un usuario con su password, y luego le otorgaremos permisos de manipulación sobre la base de datos creada:
+ create user 'miusuario' identified by 'mipass';
+ grant all privileges on sacdb.* to miusuario; 
+
+ *Este usuario es sólo para la base de datos sacdb
+ exit;
+ mysql -u miusuario -pmipass sacdb
+
+ ~~~
+ 
 
