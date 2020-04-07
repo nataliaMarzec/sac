@@ -22,12 +22,14 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 - Tener en cuenta que la clases de facturación se han ampliado agregando al standard de facturación las electrónicas
 
 * Requisitos:
-
+- Crear formulario
 - Crear la entidad Proveedor(ej: YPF)
 - Registrar la entidad Proveedor en formulario
+- Modificar la entidad Proveedor
 - Eliminar la entidad Proveedor
 - Crear la entidad Ventas(Servicios al cliente)
 - Registrar la entidad Ventas en formulario
+- Modificar la entidad Provedor
 - Eliminar la entidad Ventas
 - Crear la facturación en ventas
 - Modificar facturación en ventas
@@ -74,6 +76,9 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
  *Este usuario es sólo para la base de datos sacdb
  exit;
  mysql -u miusuario -pmipass sacdb
+
+ *Abrir el entorno gráfico:
+  mysql-workbench
 
  ~~~
  
