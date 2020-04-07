@@ -8,11 +8,10 @@ en libros junto a los detalles básicos de los cuales se deducirá las percepcio
  La idea es obtener un producto software genérico con orientación a la administración contable que cumplan y sastifagan las solicitudes
 del usuario de manera flexible y simple para que sea de fácil gestión, incluso sin tener conocimientos de administración.
 
- Con tales propósitos se utiliza la metodología ágil Scrum pero de forma individual.
 
   *falta foto y url!!!!!!!!!!!
 
-* Sus funcionalidades generales son:
+## Sus funcionalidades generales son:
 
 - En el transcurso del desarrollo del código deberá ser acorde al sistema Afip, en menor o mayor medida. Ya sea
  sólo con los requerimientos básicos o más complejos si la situación curricular amerita.
@@ -21,7 +20,7 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 - Verificar que el sistema se cargue de manera directa a la afip
 - Tener en cuenta que la clases de facturación se han ampliado agregando al standard de facturación las electrónicas
 
-* Requisitos:
+## Requisitos:
 - Crear formulario
 - Crear la entidad Proveedor(ej: YPF)
 - Registrar la entidad Proveedor en formulario
