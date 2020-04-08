@@ -47,7 +47,7 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 
 ## Instalaciones principales:
 
-*Base de datos 
+*~Base de datos~ :
  Durante el curso vamos a utilizar MySql Community Edition como motor de base de datos ya que es software libre y por el otro, es un motor
  muy utilizado a nivel industrial en sistemas productivos de tamaño chico y mediano.
  La instalación del motor suele traer incluido un cliente de consola. También vamos a utilizar un cliente gráfico llamado MySql Workbench.
