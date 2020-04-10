@@ -45,7 +45,33 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 - Crear backup(opcional)
 - Creación cvs(opcional)
 
+
 ## Instalaciones principales:
+  ~~~
+  install node
+  curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+  sudo apt-get install -y nodejs 
+
+  npm init 
+  npm install mysql
+
+  ~~~
+luego...
+~~~
+ install yarn
+ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+ sudo apt-get update && sudo apt-get install yarn
+~~~
+___
+
+
+
+
+
+
+
+### Instalaciones base de datos:
 
 *~Base de datos~ :
  Durante el curso vamos a utilizar MySql Community Edition como motor de base de datos ya que es software libre y por el otro, es un motor
@@ -80,5 +106,15 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
   mysql-workbench
 
  ~~~
+ 
+ 
+ 
+ 
+ 
+ ## Recursos:
+
+[JiraSoftware](https://software-a-medida.atlassian.net)
+
+[Trello](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)
  
 
