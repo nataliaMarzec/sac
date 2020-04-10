@@ -51,9 +51,8 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
   install node
   curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
   sudo apt-get install -y nodejs 
-
   npm init 
-  npm install mysql
+
 
   ~~~
 luego...
@@ -63,7 +62,22 @@ luego...
  echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
  sudo apt-get update && sudo apt-get install yarn
 ~~~
+luego..
+~~~
+npm init
+npm install uuid --save
+~~~
+testeando con..
+~~~
+npm install jest --save-dev
+npm test
+~~~
+y para convertir nuestro servidor en un servidor Rest
+~~~
+npm install express body-parser --save
+~~~
 ___
+ 
 
 
 
@@ -73,7 +87,7 @@ ___
 
 ### Instalaciones base de datos:
 
-*~Base de datos~ :
+*~Base de datos :
  Durante el curso vamos a utilizar MySql Community Edition como motor de base de datos ya que es software libre y por el otro, es un motor
  muy utilizado a nivel industrial en sistemas productivos de tamaño chico y mediano.
  La instalación del motor suele traer incluido un cliente de consola. También vamos a utilizar un cliente gráfico llamado MySql Workbench.
