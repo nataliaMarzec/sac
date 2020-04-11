@@ -78,6 +78,21 @@ npm install express body-parser --save
 ~~~
 ___
  
+ 
+ 
+ 
+### Instalaciones Sequelize:
+
+~~~
+npm install --save sequelize
+npm install --save mysql2
+~~~
+luego se crearán los folders migrations,config,models con la siguiente líneas de comando:
+~~~
+sequelize init
+~~~
+
+
 
 
 
