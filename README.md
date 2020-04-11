@@ -133,6 +133,11 @@ sequelize init
 
  *Abrir el entorno gráfico:
   mysql-workbench
+  
+ *Para refrescar privilegios de usuario:
+  flush privileges;
+
+
 
  ~~~
  
