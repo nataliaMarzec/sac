@@ -146,6 +146,8 @@ sequelize init
  
  
  ## Recursos:
+ 
+[mysql](https://www.jveweb.net/archivo/2011/03/manejando-mysql-desde-la-linea-de-comandos.html)
 
 [JiraSoftware](https://software-a-medida.atlassian.net)
 
