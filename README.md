@@ -1,6 +1,6 @@
-# sequelize/cli [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
+# [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
 
-The [Sequelize](https://sequelize.org) Command Line Interface (CLI)
+ [Sequelize](https://sequelize.org) 
 
 # SAC Sistema Administrativo Contable
 
@@ -126,7 +126,11 @@ sequelize migration:generate --name create_clientes_table
 ~~~
 
 8- luego copio el siguiente codigo en el archivo de migracion empresas:
+
 /* 20190214225010-create_empresas_table.js */
+
+
+*** javascript
 
 "use strict";
 
@@ -165,6 +169,8 @@ module.exports = {
     return queryInterface.dropTable("empresas");
   }
 };
+
+*** javascript
 
 Ahora que se crean nuestras migraciones, necesitamos migrarlas a la base de datos.
 ~~~
