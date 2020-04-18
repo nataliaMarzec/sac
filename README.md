@@ -130,7 +130,7 @@ sequelize migration:generate --name create_clientes_table
 /* 20190214225010-create_empresas_table.js */
 
 
-*** javascript
+###
 
 "use strict";
 
@@ -170,7 +170,7 @@ module.exports = {
   }
 };
 
-*** javascript
+###
 
 Ahora que se crean nuestras migraciones, necesitamos migrarlas a la base de datos.
 ~~~
@@ -183,7 +183,7 @@ sequelize db:migrate:undo
 ~~~
 
 ¡A partir de ahora se trabaja con el cli de Sequelize dentro de las posibilidades!
-(CLI-Sequelize)[https://github.com/sequelize/cli]
+[CLI-Sequelize!][https://github.com/sequelize/cli]
 
 
 
