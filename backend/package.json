@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Trabajo Final",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
     "start": "node server.js"
@@ -12,6 +12,7 @@
     "url": "git+https://github.com/nataliaMarzec/sac.git"
   },
   "keywords": [
+    "sequelize",
     "sql",
     "nodejs"
   ],
@@ -22,6 +23,13 @@
   },
   "homepage": "https://github.com/nataliaMarzec/sac#readme",
   "dependencies": {
-    "mysql": "^2.18.1"
-  }
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {}
 }
