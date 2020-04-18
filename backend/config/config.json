@@ -1,0 +1,27 @@
+{
+   
+  "development": {
+    "username": "adm",
+    "password": "Sistema_ac20",
+    "database": "sac",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+    
+  },
+  "test": {
+    "username": "adm",
+    "password": "Sistema_ac20",
+    "database": "sac_test",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  },
+  "production": {
+    "username": "root",
+    "password": "Sistema_ac20",
+    "database": "sac",
+    "host": "127.0.0.1",
+    "dialect": "mysql",
+    "operatorsAliases": false
+  }
+}

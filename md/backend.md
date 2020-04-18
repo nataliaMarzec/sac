@@ -7,39 +7,9 @@
 
 ### Persistencia:
 
-* MongoDb - Consulta genérica:
+~ Mysql-Nodejs->
+(baseDeDatos!)[https://www.mysqltutorial.org/mysql-nodejs/connect/]
 
-(rsqlMongoDb!)[https://gitlab.com/pnieloud/js-get-started/-/blob/master/md/consultas-Genericas-al-Backend.md]
- 
-° Operaciones Compatibles:
-  Igual a: ==
-  No es igual a:! =
-  Menos de: = lt =
-  Menor o igual que: = le =
-  Mayor que: = gt =
-  Mayor o igual que: = ge =
-  En: = en =
-  No dentro: = fuera =
-
- > Se integra en :
-   |
-   |-> Server.js-> req.query.consulta se usa en browser [!brows][(localhost:8888/productos?consulta=nombre=="ejm")]
-              ~~~    
-                   if (req.query.consulta) {
-                   console.log("Query:" + req.query.consulta) 
-                   var Consulta = (req.query.consulta)
-                   query = rsqlMongoDB (Consulta)} 
-              ~~~                  
-                              
-   |-> MongoConections.js->  
-
-   |-> MongoHome.js->find reemplaza a all
-              ~~~
-                   find(query, callback) {
-                   this.persistentCollection.find(query).toArray( (error, result)=>{
-                   if(error) throw error
-                    callback(result)})}
-              ~~~
 
 ***
 
