@@ -22,9 +22,9 @@ module.exports = function(sequelize, DataTypes) {
 			},
 			
 		},
-		empresa.associate = function(modelo) {
-			empresa.hasMany(modelo.cliente);
-		  },
+		// empresa.associate = function(modelo) {
+		// 	empresa.hasMany(modelo.cliente);
+		//   },
 		{
 			timestamps: false,
 			freezeTableName: true,

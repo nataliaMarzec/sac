@@ -11,9 +11,9 @@ const errHandler = err => {
     console.error("Error: ", err);
   };
 sqlConnection.connect((db)=>{
-let empresa =await server.create({id_empresa:'id_empresa',nombre_empresa:'Magnolia.sa',cuit_empresa
+let empresa =await server.post({id_empresa:'id_empresa',nombre_empresa:'Magnolia.sa',cuit_empresa
 :'27-24555321-3' ,email_empresa:'magnolia@gmail.com'}).catch(errHandler);
-let id=server.create(empresa);
+// let id=server.create(empresa);
 
 
   

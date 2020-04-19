@@ -20,7 +20,8 @@ const sequelize = new Sequelize('sac','adm','Sistema_ac20', {
     min: 0,
     acquire: 30000,
     idle: 10000
-  }
+  },
+  
 });
 sequelize.authenticate()
  .then(() => {
@@ -43,6 +44,11 @@ sequelize.authenticate()
 //Sequelize se refiere a la biblioteca en sí y sequelize a una instacia de Sequelize
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
+
+
+
 
 //Modelos/tables
 db.Empresas = require('../modelo/Empresa.js')(sequelize, Sequelize);
