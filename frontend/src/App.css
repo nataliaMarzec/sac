@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+.App-logoGira {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 30s linear;
+  }
+}
+
+.App-header {
+  background-color: #6576da;
+  background-image: url("img/mandala.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(4px + 4vmin);
+  color:rgb(52, 66, 55);
+}
+
+.Sac-link {
+  color: #45044b;
+}
+
+.App-body{
+  color:#be0e60;
+}
+
+@keyframes App-logoGira-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
