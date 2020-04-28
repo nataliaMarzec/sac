@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("clientes", {
+    return queryInterface.createTable("Clientes", {
       id: {
         type: Sequelize.INTEGER(11),
         allowNull: false,
@@ -10,16 +10,16 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true
       },
-      nombre_cliente: {
+      nombre: {
         type: Sequelize.STRING(35),
         allowNull: false,
         unique: false
       },
-      cuit_cliente: {
-        type: Sequelize.INTEGER(11),
+      cuit: {
+        type: Sequelize.STRING(12),
         allowNull:true
       },
-      email_cliente: {
+      email: {
         type: Sequelize.STRING(50),
         allowNull: true
       },
@@ -30,8 +30,7 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("clientes");
+    return queryInterface.dropTable("Clientes");
   }
 };
-
 

@@ -50,15 +50,42 @@ server.delete("/:type/:id",(req,res)=>{
   server.use(bodyParser.json())
   server.use(bodyParser.urlencoded({extended:true}));
   
+const express = require('express')
+const bodyParser = require('body-parser')
+var debug = require('debug')('express-sequelize');
+var db=require("./models/sequelizeConnection.js");
+const server = express()
 
+server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({ extended: false }))
+
+server.set('port',process.env.PORT||3001);
+server.use('/api/routes', require('./routes/routes'))
+
+
+
+// db.sequelize.sync().then(() => {
+  server.listen(server.get('port'),()=> {
+  (`Express listening on port ${server.get('port')}`);
   
+  });
+// });
 
 
 
 
 
-const router = express.Router();
-server.use(router);
+// var express = require('express');
+// var Sequelize = require('sequelize');
+// bodyParser = require("body-parser");
+// cors = require("cors")
+// var morgan= require("morgan");
+// var path = require("path");
+// var debug = require('debug')('express-sequelize');
+// var db=require("./models/sequelizeConnection.js");
+// // var routers = require('./routers/routers');
+// const controller = require('./controllers/EmpresaController')
+
 
 const rootPath = path.resolve('path',"(/:type/*)|(/:type)");
 server.use(express.static(rootPath));
@@ -82,17 +109,34 @@ server.use(express.static(rootPath));
 // })
 
 
+// var server= express();
+// server.use(bodyParser.json());
+// server.use(morgan(`dev`));
+// server.set('port',process.env.PORT||3001);
+// // const db = require("../models");
+// server.set(controller);
+
+
+// server.get("/", (req, res) => res.send('APP UP'));
+
+
+// server.use(cors());
+
+// server.post('/create',controller.createEmpresa);
+// server.get('/empresas',controller.getEmpresas);
+
+// console.log("AQUI SERVER:",path.join(__dirname,`server`));
 
 
 
+// db.sequelize.sync().then(() => {
+//   server.listen(server.get('port'),()=> {
+//   debug(`Express listening on port ${server.get('port')}`);
+  
+//   });
+// });
 
-  server.listen(server.get('port'), () => {
-    console.log(`Server on port ${server.get('port')}`);
-  });
 
-// }
-
-// exports.init=init;
 exports.server=server
 
 
