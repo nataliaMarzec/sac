@@ -6,9 +6,8 @@ const empresaController = require('../controllers/EmpresaController')
 // router
 //   .post('/:create',controller.createEmpresa)
 //   .get('/:empresas/',controller.getEmpresas)
-router
-router.route('/:create').post(empresaController.createEmpresa)
-router.route('/:empresas').get(empresaController.getEmpresas)
+router.route('/create').post(empresaController.createEmpresa)
+router.route('/empresas').get(empresaController.getEmpresas)
 
 
 // server.post("/", empresas.create);
