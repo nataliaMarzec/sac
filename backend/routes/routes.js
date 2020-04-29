@@ -1,13 +1,14 @@
 const express = require('express')
-const router = express.Router()
+const router = new express.Router;
 const empresaController = require('../controllers/EmpresaController')
 
 
 // router
 //   .post('/:create',controller.createEmpresa)
 //   .get('/:empresas/',controller.getEmpresas)
-router.route('/create').post(empresaController.createEmpresa)
-router.route('/empresas').get(empresaController.getEmpresas)
+// router.use('/create',post(empresaController.createEmpresa))
+router.get('/empresas',(req,res)=>res.send(empresaController.getEmpresas));
+router.get('/hola',(req,res)=>res.send('ok'));
 
 
 // server.post("/", empresas.create);

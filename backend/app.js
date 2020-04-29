@@ -21,7 +21,7 @@ let empresa =await server.post({id_empresa:'id_empresa',nombre_empresa:'Magnolia
 
 
 // server.register(user,id);
-server.init();
+// server.init();
 console.log("server init desde app.js");
 
 })
