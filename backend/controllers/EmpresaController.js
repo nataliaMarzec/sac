@@ -6,15 +6,15 @@ const Cliente = require('../models/Cliente');
 // const Proveedor = require('../models').Proveedor
 
 
-exports.createEmpresa = async (req, res) => {
-  try {
-    const empresa = await Empresa.beforeBulkCreate(req.body)
+// exports.createEmpresa = async (req, res) => {
+//   try {
+//     const empresa = await Empresa.beforeBulkCreate(req.body)
     
-    res.status(200).json({ empresa })
-  } catch (err) {
-    res.status(400).json({ err:'no crea Empresa'})
-  }
-}
+//     res.status(200).json({ empresa })
+//   } catch (err) {
+//     res.status(400).json({ err:'no crea Empresa'})
+//   }
+// }
 // exports.createEmpresa = async (req,res)=>{
 //    Empresa.create({ nombre: 'loli', cuit: '235556612',email:'@loli' })
 //   .success(function(){
@@ -36,19 +36,24 @@ exports.createEmpresa = async (req, res) => {
 //     console.log(cli);
 //   });
 
-
-exports.getEmpresas = async (req, res) => {
+module.exports={
+  
+  getEmpresas :async (req, res,next) => {
   try {
     const empresas = await Empresa.findAll()
 
-    res.status(200).json({ empresas })
+    res.status(200).json( empresas )
+    // return res.status(200);
   } catch (err) {
     if(![req.body.values]){
     res.status(400).json({ err:'no obtiene lista de empresas' })
-    
+    }
     }
   }
+  //funcion
+  
 }
+
 
 // exports.getEmpresaById = async (req, res) => {
 //   try {
