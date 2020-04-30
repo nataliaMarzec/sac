@@ -29,7 +29,7 @@ let sequelize = new Sequelize('sac','adm','Sistema_ac20', {
 //     callback(sequelize)
 //   })
 // }
-var db = {};
+const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
@@ -99,6 +99,8 @@ sequelize.sync({force: false})
   })
 
 
+   
+
 
 
 module.exports = {
@@ -107,6 +109,6 @@ module.exports = {
   
 
 };
-module.exports={ Sequelize ,Op,Model,DataTypes}
-module.exports=db.Empresas;
-module.exports=db.Clientes;
+exports={ Sequelize ,Op,Model,DataTypes}
+exports=db.Empresas;
+exports=db.Clientes;
