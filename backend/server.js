@@ -6,22 +6,21 @@ var path = require("path");
 var debug = require('debug')('express-sequelize');
 var db=require("./models/sequelizeConnection.js");
 // var router =require('express-promise-router')();
-
+// var morgan=require('morgan')
 
 const server= express();
 server.use(bodyParser.json());
+// server.use(morgan);
+
 server.use(require ('./routes/routes.js'));
 
 server.set('port',process.env.PORT || 3002);
 
 server.get("/", (req, res) => res.send('APP UP'));
 
-
 server.use(cors());
 
 console.log("AQUI SERVER:",path.join(__dirname,`server`));
-
-
 
 db.sequelize.sync().then(() => {
   server.listen(server.get('port'),()=> {
