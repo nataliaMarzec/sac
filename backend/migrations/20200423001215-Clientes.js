@@ -3,16 +3,22 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Clientes", {
-      id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        autoIncrement: true
-      },
+     id:{
+      type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+ 
+     },
+      // id: {
+      //   type: Sequelize.STRING(11),
+      //   allowNull: false,
+      //   autoIncrement: true,
+      //   primaryKey: true,
+      //   autoIncrement: true
+      // },
       nombre: {
         type: Sequelize.STRING(35),
-        allowNull: false,
+        allowNull: true,
         unique: false
       },
       cuit: {

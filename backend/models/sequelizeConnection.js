@@ -1,24 +1,28 @@
 'use strict'
-const fs=require('fs');
-// const Sequelize = require[("sequelize"),( __dirname + "/ lib / sequelize / index" )];
-const env = process.env.NODE_ENV || 'development';
-const path = require('path');
-const config = require(__dirname + '/../config/config.json')[env];
-var basename  = path.basename(__filename);
-const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
+
+const Sequelize = require('sequelize');
+const EmpresaModel = require('../models/Empresa');
+const ClienteModel=require('../models/Cliente');
 
 
-let sequelize = new Sequelize('sac','adm','Sistema_ac20', {
-  host: 'localhost',
-  dialect: 'mysql',
-  operatorsAliases: false,
-  pool: {
+
+const DBURL='mysql://adm:Sistema_ac20@localhost:3306/sac'
+let sequelize=new Sequelize(DBURL,{
+   operatorsAliases:'false',
+    pool: {
     max: 10,
     min: 0,
     acquire: 30000,
     idle: 10000
   }
 });
+
+var models={}
+models=sequelize
+models=Sequelize
+
+const Cliente= ClienteModel(sequelize,Sequelize);
+const Empresa=EmpresaModel(sequelize,Sequelize);
 
 // let SequelizeAuto = require('sequelize-auto')
 // module.exports = function(config, callback) {
@@ -29,9 +33,7 @@ let sequelize = new Sequelize('sac','adm','Sistema_ac20', {
 //     callback(sequelize)
 //   })
 // }
-const db = {};
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+
 
 sequelize.authenticate()
  .then(() => {
@@ -42,73 +44,47 @@ sequelize.authenticate()
  });
 
 
-
- //en caso de querer cerrar la sesión:
-//  sequelize.close();
-
-fs.readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js'
-    )
-  })
-  .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file))
-    db[model.name] = model
-  })
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
 //en caso de querer cerrar la sesión:
 //  sequelize.close();
 
 
-//Modelos/tables
-db.Clientes= require('./Cliente.js')(sequelize,Sequelize);
-db.Empresas = require('./Empresa.js')(sequelize,Sequelize);
-// db.Proveedores= require('../modelo/Proveedor.js')(sequelize,Sequelize);
+sequelize.sync()
+  .then(() => {
+    console.log(`Base de datos y tablas creadas, modelos sincronizados!`)
+    console.log("SOY CLIENTE SYNC:",Cliente=== sequelize.models.Cliente); 
+    console.log("SOY EMPRESA SYNC:",Empresa === sequelize.models.Empresa);   
+  })
 
-
-  // db.Empresas.bulkCreate([
+  // Empresas.bulkCreate([
   //   { nombre: 'magna', cuit: '2322222223',email:'@magna' },
   //   { nombre: 'Pluma', cuit: '2322223343',email:'@pluma' },
    
   // ]).then(function() {
-  //   return db.Empresas.findAll();
+  //   return Empresas.findAll();
   // }).then(function(emps) {
   //   console.log(emps);
   // });
 
-  // db.Clientes.bulkCreate([
+    // Clientes.bulkCreate([
   //   { nombre: 'Brandon Juarez', cuit: '2322222243',email:'@Brandon' },
   //   { nombre: 'Daniel Esquivel', cuit: '20302252112',email:'@Daniel' },
    
   // ]).then(function() {
-  //   return db.Clientes.findAll()
+  //   return Clientes.findAll()
   // }).then(function(cli) {
   //   console.log(cli);
   // });
-
-
-sequelize.sync({force: false})
-  .then(() => {
-    console.log(`Base de datos y tablas creadas, modelos sincronizados!`)
-  })
-
-
-   
+ 
 
 
 
 module.exports = {
   sequelize,
-  db,
-  
+  Cliente,
+  Empresa
+
 
 };
-exports={ Sequelize ,Op,Model,DataTypes}
-exports=db.Empresas;
-exports=db.Clientes;
+
+
+

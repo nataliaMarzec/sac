@@ -1,21 +1,19 @@
 const express = require('express')
 const router = new express.Router;
-const empresaController = require('../controllers/EmpresaController')
+const controllerEmpresa = require('../controllers/EmpresaController')
 
 
-
-
-
-
-
-console.log("-------------------ROUTER----------------")
+console.log("--------SOY ROUTER---------"); 
 
 
 router.get('/hola',(req,res)=>res.send('ok'));
-router.post('/',(req,res)=>res.send(empresaController.createEmpresa));
-router.get('/empresas',(req,res)=>res.send(empresaController.getEmpresas));
+router.post('/empresas/nuevo',(controllerEmpresa.createEmpresa))
 
 
+// router.get('/empresas',(req,res)=>{
+//     res.send('GET /empresas')
+//     console.log("aqui empresas")
+// })
 
 
 

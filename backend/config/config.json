@@ -1,12 +1,11 @@
-{
-   
+{ 
   "development": {
     "username": "adm",
     "password": "Sistema_ac20",
     "database": "sac",
     "host": "127.0.0.1",
-    "dialect": "mysql"
-    
+    "dialect": "mysql",
+    "operatorsAliases": "false"
   },
   "test": {
     "username": "adm",

@@ -1,41 +1,38 @@
-var {Sequelize,Op,Model} = require('sequelize');
-// const { sequelize } = require('./models')
-var db=require("../models/sequelizeConnection.js");
-const Empresa = require('../models/Empresa');
-const Cliente = require('../models/Cliente');
-// const Proveedor = require('../models').Proveedor
+var {Op} = require('sequelize');
+const {Empresa} = require('../models/sequelizeConnection.js')
 
 
 console.log("--------------CONTROLLER----------------")
 
+
+   
+   
+ 
 module.exports = {
 
-  createEmpresa :(req, res) => {
-  try {
-    const empresa = Empresa.create(req.body)
-   
-    .then(res.status(200).json(empresa))
-    
-  } catch (err) {
-    res.status(400).json({ err:'no crea Empresa'})
-  }
+  createEmpresa :(req,res) => {
+     const empresa= Empresa.create({
+       id:req.body.id,
+       nombre:req.body.nombre,
+       cuit:req.body.cuit,
+       email:req.body.email
+     })
+      res.status(200).json(empresa)
 },
 
 
+  // getEmpresas :(req, res,next) => {
+  // try {
+  //   const empresas = Empresas.findAll()
 
-  
-  getEmpresas :(req, res,next) => {
-  try {
-    const empresas = Empresa.findAll()
-
-    res.status(200).json( empresas )
-    // return res.status(200);
-  } catch (err) {
-    if(![req.body.values]){
-    res.status(400).json({ err:'no obtiene lista de empresas' })
-    }
-    }
-  },
+  //   res.status(200).json( empresas )
+  //   // return res.status(200);
+  // } catch (err) {
+  //   if(![req.body.values]){
+  //   res.status(400).json({ err:'no obtiene lista de empresas' })
+  //   }
+  //   }
+  // },
 //   getEmpresaById :async (req, res) => {
 //   try {
 //     const empresa = await Empresa.findById(req.params.id)
