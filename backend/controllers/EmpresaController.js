@@ -23,22 +23,35 @@ module.exports = {
 
 getEmpresas :async(req, res,next) => {
     const empresas =await Empresa.findAll()
-    res.status(200).json( empresas )
-    // return res.status(200);
     if(![req.body.values]){
     res.status(400).json({ err:'no obtiene lista de empresas' })
+    }else{
+      return res.status(200).json( empresas )
     }
   },
 
-//   getEmpresaById :async (req, res) => {
-//   try {
-//     const empresa = await Empresa.findById(req.params.id)
 
-//     res.status(200).json({ empresa })
-//   } catch (err) {
-//     res.status(400).json({ err })
-//   }
-// }
+getEmpresaId: async(req,res)=>{
+    var empresa =await Empresa.findByPk(req.params.id)
+    if(![req.body.values]){
+      res.status(400).json({err:'No hay empresa con ID'})
+    }else{
+    return res.status(200).json(empresa)
+    }
+},
+
+
+deleteEmpresaId: async(req,res)=>{
+  var empresa =await Empresa.deleteByPk(req.params.id)
+  if(![req.body.values]){
+    res.status(400).json({err:'No hay empresa con ID'})
+  }else{
+  return res.status(200).json(empresa)
+  }
+}
+
+
+
 // exports.createEmpresa = async (req,res)=>{
 //    Empresa.create({ nombre: 'loli', cuit: '235556612',email:'@loli' })
 //   .success(function(){
