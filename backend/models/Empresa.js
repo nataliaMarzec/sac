@@ -1,21 +1,19 @@
-'use strict'
 const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
-const db = require('./sequelizeConnection.js');
-const Cliente= require('./Cliente.js');
+Cliente = require('./sequelizeConnection')
 
 
 module.exports = function(sequelize, DataTypes) {
 	var Empresa = sequelize.define('Empresa',{
-		
-		id: {
-				type: DataTypes.INTEGER(11),
-				allowNull: false,
-				primaryKey: true,
-				autoIncrement: true
-			},
+		id:{
+		type: Sequelize.INTEGER(12),
+            autoIncrement: true,
+            primaryKey: true
+ 
+		},
+
 		nombre: {
-		        type: DataTypes.STRING(35),
-		        allowNull: false
+		        type: DataTypes.STRING(25),
+		        allowNull: true
 	     // validate: {
 		     // notNull: {
 	     	// 	msg: 'Por favor completa tu nombre'
@@ -60,13 +58,7 @@ module.exports = function(sequelize, DataTypes) {
 	
 }
 
-// Empresa
-//   .create({ nombre: 'Juan', cuit: '27290005553' ,email:'@Juan'})
-//   .then(empr => {
-//     console.log(empr.get('nombre')); 
-// 	console.log(empr.get('cuit'));
-// 	console.log(empr.get('email'));
-//   })
+
 
 	
 

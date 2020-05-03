@@ -3,16 +3,22 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("Empresas", {
-      id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        autoIncrement: true
+      id:{
+      type: Sequelize.INTEGER(12),
+            autoIncrement: true,
+            primaryKey: true
+ 
       },
+      // id: {
+      //   type: Sequelize.STRING(11),
+      //   allowNull: false,
+      //   autoIncrement: true,
+      //   primaryKey: true,
+      //   autoIncrement: true
+      // },
       nombre: {
-        type: Sequelize.STRING(35),
-        allowNull: false,
+        type: Sequelize.STRING(25),
+        allowNull: true,
         unique: false
       },
       cuit: {
