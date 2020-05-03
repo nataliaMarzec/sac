@@ -21,18 +21,15 @@ module.exports = {
 },
 
 
-  // getEmpresas :(req, res,next) => {
-  // try {
-  //   const empresas = Empresas.findAll()
+getEmpresas :async(req, res,next) => {
+    const empresas =await Empresa.findAll()
+    res.status(200).json( empresas )
+    // return res.status(200);
+    if(![req.body.values]){
+    res.status(400).json({ err:'no obtiene lista de empresas' })
+    }
+  },
 
-  //   res.status(200).json( empresas )
-  //   // return res.status(200);
-  // } catch (err) {
-  //   if(![req.body.values]){
-  //   res.status(400).json({ err:'no obtiene lista de empresas' })
-  //   }
-  //   }
-  // },
 //   getEmpresaById :async (req, res) => {
 //   try {
 //     const empresa = await Empresa.findById(req.params.id)
