@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router;
 const controllerEmpresa = require('../controllers/EmpresaController')
-
+const controllerCliente = require('../controllers/ClienteController')
 
 console.log("--------SOY ROUTER---------"); 
 
@@ -14,10 +14,11 @@ router.delete('/empresas/:id',(controllerEmpresa.deleteEmpresaId))
 
 
 
-// router.get('/empresas',(req,res)=>{
-//     res.send('GET /empresas',(controllerEmpresa.getEmpresas))
-//     console.log("aqui empresas")
-// })
+
+router.post('/clientes/nuevo',(controllerCliente.createCliente))
+router.get('/clientes',(controllerCliente.getClientes))
+router.get('/clientes/:id',(controllerCliente.getClienteId))
+router.delete('/clientes/:id',(controllerCliente.deleteClienteId))
 
 
 

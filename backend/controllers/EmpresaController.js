@@ -10,7 +10,7 @@ console.log("--------------CONTROLLER----------------")
  
 module.exports = {
 
-  createEmpresa :(req,res) => {
+createEmpresa :(req,res) => {
      const empresa= Empresa.create({
        id:req.body.id,
        nombre:req.body.nombre,
