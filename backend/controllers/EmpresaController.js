@@ -42,13 +42,18 @@ getEmpresaId: async(req,res)=>{
 
 
 deleteEmpresaId: async(req,res)=>{
-  var empresa =await Empresa.deleteByPk(req.params.id)
+  var empresa =await Empresa.destroy({
+    where:{
+      id:req.params.id
+    }
+  })
   if(![req.body.values]){
     res.status(400).json({err:'No hay empresa con ID'})
   }else{
-  return res.status(200).json(empresa)
+   res.status(200).json('Eliminada empresa con ID ')
   }
 }
+
 
 
 
