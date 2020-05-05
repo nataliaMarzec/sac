@@ -53,7 +53,7 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 
 ## Tablas:
 
-![Esquema Base de datos](tablas.xml)
+![Esquema Base de datos](tablas.png)
 
 
 
