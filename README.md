@@ -51,6 +51,11 @@ del usuario de manera flexible y simple para que sea de fácil gestión, incluso
 - Crear backup(opcional)
 - Creación cvs(opcional)
 
+## Tablas:
+
+![Database Schema](images/schema.png)
+
+
 
 ## Instalaciones principales:
   ~~~
