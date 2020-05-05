@@ -1,8 +1,8 @@
 # [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
 
- [Sequelize](https://sequelize.org) 
 
- [Integración Sequelize](md/sequelize.md)
+
+ [Integración Sequelize-md](md/sequelize.md)
 
 # SAC Sistema Administrativo Contable
 
