@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-color:rgb(81, 107, 224); 
+  /* font-size: calc(4px + 4vmin);  */
+  color: blanchedalmond;
+}
+App-collapseOnSelect{
+  color: aquamarine;
 }
 
 .App-logoGira {
@@ -14,18 +20,20 @@
 }
 
 .App-header {
+  color:#65daca; 
   background-color: #6576da;
-  background-image: url("img/mandala.jpeg");
-  background-repeat: no-repeat;
+  /* background-image: url("img/mandala.jpeg"); */
+  background-repeat: no-repeat; 
   background-size: cover;
   min-height: 3vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(4px + 4vmin);
-  color:rgb(52, 66, 55);
+  /* font-size: calc(4px + 4vmin); */
+  
 }
+
 
 .Sac-link {
   color: #45044b;

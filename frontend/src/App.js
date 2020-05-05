@@ -13,25 +13,24 @@ import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
       
 function App() {
   return (
-    <div className="App">
+    <div className="App"  >
     <Router>
-      {/* <header className="App-header"> */}
-     {/*<NavBar>*/} 
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="#home">SISTEMA ADMINISTRATIVO CONTABLE</Navbar.Brand>
+    
+      {/* <Navbar className="App-navbar" collapseOnSelect expand="lg" bg="" variant="light">   */}
+  <Navbar className="App-collapseOnSelect" >   
+  <Navbar.Brand href="#home" style={{color:'white'}}>SAC</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="App-header">
-      <Nav.Link href="#features">CAJA</Nav.Link>
-      <Nav.Link href="#pricing">Pricing</Nav.Link>
-      <NavDropdown title="Cliente" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#formulario/cliente.nombre">formulario</NavDropdown.Item>
+      <Nav.Link href="#features">Caja</Nav.Link>
+      <NavDropdown title="Cliente" id="collasible-nav-dropdown" >
+        <NavDropdown.Item href="registrar/cliente.nombre">formulario</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />
       </NavDropdown>
       <NavDropdown title="Proveedor" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#formulario/3.1">Action</NavDropdown.Item>
+        <NavDropdown.Item href="#registrar/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />
@@ -40,21 +39,28 @@ function App() {
     </Nav>
     <Nav>
       <Nav.Link href="#deets">More deets</Nav.Link>
-      <Nav.Link eventKey={2} href="#memes">
-        Dank memes
-      </Nav.Link>
+      <Nav.Link eventKey={2} href="#memes">Dank memes</Nav.Link>
     </Nav>
+ 
   </Navbar.Collapse>
+  <Nav>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" /> 
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+  </Nav>
+ 
+ 
 </Navbar>
 
-       {/*</NavBar>*/}
+       
 
         {/* <img src={logoGira} className="App-logoGira" alt="logoGira" />
         <p>codice zingaro: <code>Sac.js</code> aggirando il codice ...</p>
         <a src={'./Sac'} className="Sac-link" href="./Sac.js" content="0;URL=Sac.js" onclick="alert('Un mensaje de prueba')">
           Development "link" App-Sac </a> */}
      
-      {/* </header> */}
+      
 
       <main className="App-main">
         <Switch>
