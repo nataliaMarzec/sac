@@ -3,7 +3,7 @@ Cliente = require('./sequelizeConnection')
 
 
 module.exports = function(sequelize, DataTypes) {
-	var Empresa = sequelize.define('Empresa',{
+	const Empresa = sequelize.define('Empresa',{
 		id:{
 		type: Sequelize.INTEGER(12),
             autoIncrement: true,
@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 		
 		//OPCIONES
 		{
-			//especifica si se crearan los campos  createAt y updateAt para id
+			
 			timestamps: false,
 			freezeTableName: true,
 			tableName: 'Empresas',
