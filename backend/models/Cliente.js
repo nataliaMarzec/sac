@@ -5,7 +5,7 @@ const Empresa = require('./sequelizeConnection.js');
 
 
 module.exports = function(sequelize, DataTypes) {
-	var Cliente = sequelize.define('Cliente',{
+	const Cliente = sequelize.define('Cliente',{
 		id:{
 		    type: Sequelize.INTEGER,
 		 	autoIncrement: true,
