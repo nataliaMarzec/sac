@@ -2,7 +2,7 @@
 
 const Sequelize = require('sequelize');
 const EmpresaModel = require('../models/Empresa');
-const ClienteModel=require('../models/Cliente');
+const ClienteModel=require('./Cliente');
 const FacturacionModel=require('../models/Facturacion')
 
 
