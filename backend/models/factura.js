@@ -1,6 +1,6 @@
 'use strict';
 const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
-Empresa = require('./sequelizeConnection');
+
 Cliente = require('./sequelizeConnection')
 
 module.exports = (sequelize, DataTypes) => {

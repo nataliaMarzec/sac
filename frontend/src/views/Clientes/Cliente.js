@@ -2,12 +2,18 @@ import React, { Component } from 'react';
 import {Button,Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
 import clientesData from './ClientesData'
+import Clientes from './Clientes'
 
 class Cliente extends Component {
+   constructor(props){
+       super(props)
+       this.state={clientes:[]}
+}
 
   render() {
     {/*--machea los datos de clientesData*/}
-    const cliente = clientesData.find( cliente => cliente.id.toString() === this.props.match.params.id)
+    {/* const cliente = clientesData.find( cliente => cliente.id.toString() === this.props.match.params.id)*/}
+    const cliente = this.props.componentDidMount().find(cliente=>cliente.id.toString() === this.props.match.params.id)
 
     const clienteDetalles = cliente ? Object.entries(cliente) : [['id', (<span><i className="text-muted icon-ban"></i> Not found</span>)]]
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { renderRoutes } from 'react-router-config';
 import './App.scss';
 
@@ -15,10 +15,11 @@ const Page404 = React.lazy(() => import('./views/Pages/Page404'));
 const Page500 = React.lazy(() => import('./views/Pages/Page500'));
 
 class App extends Component {
-
+//nuevo agregado Router
   render() {
     return (
-      <HashRouter>
+     <HashRouter>
+        <Router>
           <React.Suspense fallback={loading()}>
             <Switch>
               <Route exact path="/login" name="Login Page" render={props => <Login {...props}/>} />
@@ -28,7 +29,8 @@ class App extends Component {
               <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
             </Switch>
           </React.Suspense>
-      </HashRouter>
+       </Router>
+     </HashRouter>
     );
   }
 }

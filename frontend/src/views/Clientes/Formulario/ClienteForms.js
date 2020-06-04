@@ -1,24 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Badge,Button,Card,CardBody,CardFooter,CardHeader,Col,Collapse,
 DropdownItem,DropdownMenu,DropdownToggle,Fade,Form,FormGroup,FormText,
 FormFeedback,Input,InputGroup,InputGroupAddon,InputGroupButtonDropdown,
 InputGroupText,Label,Row,
 } from 'reactstrap';
+//const clientes=require('./../Clientes.js')
 
-class ClienteForms extends Component {
+class ClienteForms extends React.Component {
   constructor(props) {
       super(props)
+       this.state ={cliente:props.cliente}
+      	//collapse: true,
+      	//fadeIn: true,
+      	//timeout: 300
+      //};
       this.toggle = this.toggle.bind(this);
       this.toggleFade = this.toggleFade.bind(this);
-      this.state = {
-      	collapse: true,
-      	fadeIn: true,
-      	timeout: 300
-      };
+
+      this.changeHandler = this.changeHandler.bind(this)
+      this.estadoInicial=this.estadoInicial.bind(this)
+      this.onSubmit=this.onSubmit.bind(this)
+      
   }
-
-
-
   toggle() {
     this.setState({ collapse: !this.state.collapse });
   }
@@ -27,10 +30,73 @@ class ClienteForms extends Component {
     this.setState((prevState) => { return { fadeIn: !prevState }});
   }
 
+  estadoInicial(){
+      this.setState({ cliente: {id:"", nombre: "",cuit: "",email:""} });
+    }  
+ 
+  componentWillReceiveProps(nextProps) {
+      this.setState({cliente:nextProps.cliente})
+    }
+
+  // this.setState({email: event.currentTarget.value });    
+  changeHandler(event) {
+     var nuevoCliente = Object.assign({}, this.state.cliente)
+     nuevoCliente[event.target.name] = event.target.value
+     this.setState({cliente: nuevoCliente})}
+      
+   
+   
+     
+
+    sendHandler(event) {
+        fetch('http://localhost:3001/clientes', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            
+        }).then(res => this.props.clienteChanged(this.state.cliente) )
+          .then(res => this.estadoInicial())
+
+        event.preventDefault();
+    }
+    addHandler(event) {
+      fetch('http://localhost:3001/clientes', {
+          method: 'post',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+            body: JSON.stringify(this.state.cliente)
+          })
+           //ver listadoClientes():
+          .then(res =>this.props.componentDidMount())
+          .then(res => this.estadoInicial() );
+          event.preventDefault();
+  }
+
+     onSubmit(event){
+      if(this.state.cliente.id){
+       this.sendHandler(event)
+      //alert(´${this.state.cliente.id}´)
+      }else {
+       this.addHandler(event)
+    }
+  }
+
+
   render() {
+   //const {nombre,email,cuit}=this.state
+   
     return (
       <div className="animated fadeIn">
-      
+      {/*<Clientes
+        cliente={this.state.seleccionado}
+        clienteChanged={this.clienteChangeHandler}
+        listadoClientes={this.props.componentDidMount()}
+        listaActualizada={this.props.componentWillUpdate()}/>
+       }*/}
         <Row>
   {/*--Basic form---*/}
           <Col xs="12" md="6">
@@ -39,7 +105,7 @@ class ClienteForms extends Component {
                 <strong>Registrar Cliente</strong> datos
               </CardHeader>
               <CardBody>
-                <Form action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                <Form onSubmit={this.onSubmit} encType="multipart/form-data" className="form-horizontal">
 
       <FormGroup row>
          <Col md="3"><Label>Static</Label></Col>
@@ -48,13 +114,13 @@ class ClienteForms extends Component {
          </Col>
        </FormGroup>
 
-       <FormGroup row>
-          <Col md="3"><Label htmlFor="text-input" >Nombres</Label></Col>
+       {/*<FormGroup row>
+          <Col md="3"><Label for="nombreCliente" >Nombre</Label></Col>
           <Col xs="12" md="9">
-          <Input type="text" id="text-input" name="text-input" placeholder="Text" />
+          <Input type="text" id="nombreCliente" name="nombre"     value={this.state.cliente.nombre} onChange={this.changeHandler} placeholder="Leonor Marzec" />
           <FormText color="muted">Escribe tu nombre completo</FormText>
           </Col>
-       </FormGroup>
+       </FormGroup>*/}
 
        <FormGroup row className="my-0">
           <Col xs="8">

@@ -39,6 +39,7 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Clientes = React.lazy(() => import('./views/Clientes/Clientes'));
 const Cliente = React.lazy(() => import('./views/Clientes/Cliente'));
 const ClienteForms = React.lazy(() => import('./views/Clientes/Formulario/ClienteForms'));
+const ClienteForm = React.lazy(() => import('./views/Clientes/ClienteForm'));
 
 const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
 const Usuario = React.lazy(() => import('./views/Usuarios/Usuario'));
@@ -91,6 +92,7 @@ const routes = [
  { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
  { path: '/clienteForms', exact: true, name:'ClienteForms', component: ClienteForms},
  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
+{ path: '/clienteForm', exact: true, name:'ClienteForm', component: ClienteForms},
 
 { path: '/usuarios', exact: true, key:'#listado', name: 'Usuarios', component: Usuarios },
  { path: '/usuarios/:id', exact: true, name: 'Usuario Detalles', component: Usuario },

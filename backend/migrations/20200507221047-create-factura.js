@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Facturaciones', {
+    return queryInterface.createTable('Facturas', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -41,7 +41,7 @@ module.exports = {
       // jurisdiccionIIBBRentas: {
       //   type: Sequelize.ARRAY(Sequelize.STRING)
       // },
-      tabla_facturacion_id: {
+      tabla_factura_id: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -55,6 +55,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Facturaciones');
+    return queryInterface.dropTable('Factura');
   }
 };
