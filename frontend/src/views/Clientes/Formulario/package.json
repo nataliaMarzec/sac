@@ -1,0 +1,6 @@
+{
+  "name": "ClienteForms",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ClienteForms.js"
+}

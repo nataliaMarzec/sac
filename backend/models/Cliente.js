@@ -1,8 +1,8 @@
 'use strict'
 const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
 const Empresa = require('./sequelizeConnection.js');
-
-
+const Factura = require('./sequelizeConnection.js');
+const Domicilio = require('./sequelizeConnection.js');
 
 module.exports = function(sequelize, DataTypes) {
 	const Cliente = sequelize.define('Cliente',{
@@ -58,7 +58,10 @@ module.exports = function(sequelize, DataTypes) {
 				foreignKey: {
 				allowNull: false
 				  }
-				})
+				});
+			models.Cliente.hasMany(models.Domicilio);
+			models.Cliente.hasMany(models.Factura);
+
 		},
      
        console.log("SOY CLIENTE:",Cliente === sequelize.models.Cliente);   

@@ -1,9 +1,9 @@
 'use strict'
 
 const Sequelize = require('sequelize');
-const EmpresaModel = require('../models/Empresa');
-const ClienteModel=require('../models/Cliente');
-const FacturacionModel=require('../models/Facturacion')
+const EmpresaModel = require('./Empresa');
+const ClienteModel=require('./Cliente');
+const FacturaModel=require('./factura')
 
 
 const DBURL='mysql://adm:Sistema_ac20@localhost:3306/sac'
@@ -23,7 +23,7 @@ models=Sequelize
 
 const Cliente= ClienteModel(sequelize,Sequelize);
 const Empresa=EmpresaModel(sequelize,Sequelize);
-const Facturacion=FacturacionModel(sequelize,Sequelize);
+const Factura=FacturaModel(sequelize,Sequelize);
 
 
 
@@ -57,7 +57,7 @@ sequelize.sync()
     console.log(`Base de datos y tablas creadas, modelos sincronizados!`)
     console.log("SOY CLIENTE SYNC:",Cliente=== sequelize.models.Cliente); 
     console.log("SOY EMPRESA SYNC:",Empresa === sequelize.models.Empresa); 
-    console.log("SOY FACTURACION SYNC",Facturacion ===sequelize.models.Facturacion)
+    console.log("SOY FACTURA SYNC:",Factura===sequelize.models.Factura)
     
 
   })
@@ -89,7 +89,7 @@ module.exports = {
   sequelize,
   Cliente,
   Empresa,
-  Facturacion
+  Factura
 
 };
 
