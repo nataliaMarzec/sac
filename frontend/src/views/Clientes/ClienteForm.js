@@ -5,10 +5,12 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 class ClienteForm extends React.Component {
     constructor(props) {
       super(props)
+      this.cliente=this.props.unCliente
       this.state={cliente: props.cliente} 
       this.changeHandler = this.changeHandler.bind(this)
       this.estadoInicial=this.estadoInicial.bind(this)
       this.onSubmit=this.onSubmit.bind(this)
+      
     }
 
     estadoInicial(){
@@ -23,7 +25,9 @@ class ClienteForm extends React.Component {
     changeHandler(event) {
         var nuevoCliente = Object.assign({}, this.state.cliente)
         nuevoCliente[event.target.name] = event.target.value
-        this.setState({cliente: nuevoCliente})}
+        this.setState({cliente: nuevoCliente});
+
+}
        
         
 
@@ -35,7 +39,7 @@ class ClienteForm extends React.Component {
                 'Content-Type': 'application/json'
             },
            body: JSON.stringify(this.state.cliente)
-        }).then(res => this.props.clienteChanged(this.state.cliente) )
+        }).then(res => this.props.clienteChanged() )
           .then(res => this.estadoInicial)
         event.preventDefault();
     }
@@ -51,6 +55,7 @@ class ClienteForm extends React.Component {
           })
           .then(res =>this.props.listadoClientes() )
           .then(res => this.estadoInicial() );
+          //.then(res=>this.props.agregarCliente(this.state.cliente))
           event.preventDefault();
   }
 

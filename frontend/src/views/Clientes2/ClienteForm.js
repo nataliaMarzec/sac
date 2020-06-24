@@ -12,8 +12,7 @@ class ClienteForm extends React.Component {
     }
 
     estadoInicial(){
-      this.setState({ cliente: {id:"", nombre: "", razonsocial: "",email:"" ,
-      password:"desarrollo"} });
+      this.setState({ cliente: {id:"", nombre: "",cuit: "",email:"" }});
     }
 
 
@@ -29,20 +28,20 @@ class ClienteForm extends React.Component {
         
 
     sendHandler(event) {
-        fetch('http://localhost:8889/clientes', {
+        fetch('http://localhost:3004/clientes', {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            
-        }).then(res => this.props.clienteChange(this.state.cliente) )
-          .then(res => this.estadoInicial())
-
+           body: JSON.stringify(this.state.cliente)
+        }).then(res => this.props.clienteChanged(this.state.cliente) )
+          .then(res => this.estadoInicial)
         event.preventDefault();
     }
+
     addHandler(event) {
-      fetch('http://localhost:8889/clientes', {
+      fetch('http://localhost:3004/clientes', {
           method: 'post',
           headers: {
               'Accept': 'application/json',
@@ -56,7 +55,7 @@ class ClienteForm extends React.Component {
   }
 
      onSubmit(event){
-      if(this.state.cliente._id){
+      if(this.state.cliente.id){
        this.sendHandler(event)
       }else {
        this.addHandler(event)
@@ -70,12 +69,12 @@ class ClienteForm extends React.Component {
           <FormGroup>
           <Label for="exampleName">Nombre</Label>
           <Input type="text" name="nombre" id="exampleNombre" value={this.state.cliente.nombre} 
-           onChange={this.changeHandler} placeholder="Delfina Baldaccino" />
+           onChange={this.changeHandler} placeholder="Leonor Marzec" />
         </FormGroup>
         <FormGroup>
-          <Label for="examplerazonsocial">Razon social</Label>
-          <Input type="text" name="razonsocial" id="exampleRazonsocial" value={this.state.cliente.razonsocial}
-          onChange={this.changeHandler} placeholder="GipsyCode" />
+          <Label for="exampleCuit">Cuit</Label>
+          <Input type="text" name="cuit" id="examplCuit" value={this.state.cliente.cuit}
+          onChange={this.changeHandler} placeholder="27322224443" />
         </FormGroup>
         <FormGroup>
           <Label for="exampleEmail">Email</Label>

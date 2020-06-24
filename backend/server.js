@@ -7,14 +7,14 @@ var debug = require('debug')('express-sequelize');
 const {sequelize}=require('./models/sequelizeConnection')
 const server= express();
 
+server.use(cors());
 server.use(bodyParser.json());
 server.use(require ('./routes/routes.js'));
 server.set('port',process.env.PORT || 3004);
 server.get("/", (req, res) => res.send('APP UP'));
-server.use(cors());
+
 
 console.log("AQUI SERVER:",path.join(__dirname,`server`));
-server.use("Access-Control-Allow-Headers", "Authorization, Cache-Control, Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
 
 
 sequelize.sync().then(() => {

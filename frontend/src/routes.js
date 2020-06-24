@@ -88,16 +88,18 @@ const routes = [
   { path: '/widgets', name: 'Widgets', component: Widgets },
   { path: '/charts', name: 'Charts', component: Charts },
   
+  
 //agregados nuevos:
  { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
  { path: '/clienteForms', exact: true, name:'ClienteForms', component: ClienteForms},
  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
 { path: '/clienteForm', exact: true, name:'ClienteForm', component: ClienteForms},
 
+
+
 { path: '/usuarios', exact: true, key:'#listado', name: 'Usuarios', component: Usuarios },
  { path: '/usuarios/:id', exact: true, name: 'Usuario Detalles', component: Usuario },
- {/* path: '/usuarioForms', exact: true, name:'UsuarioForms', component: UsuarioForms*/},
-
+ {/* path: '/usuarioForms', exact: true, name:'UsuarioForms', component: UsuarioForms*/}
 
 ];
 

@@ -15,7 +15,7 @@ router.delete('/empresas/:id',(controllerEmpresa.deleteEmpresaId))
 
 
 
-router.post('/clientes/nuevo',(controllerCliente.createCliente))
+router.post('/clientes',(controllerCliente.createCliente))
 router.get('/clientes',(controllerCliente.getClientes))
 router.get('/clientes/:id',(controllerCliente.getClienteId))
 router.delete('/clientes/:id',(controllerCliente.deleteClienteId))

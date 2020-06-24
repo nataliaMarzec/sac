@@ -23,10 +23,10 @@ const  handleDeleteClick = (_id) =>{
     const requestOptions ={ 
      method: 'DELETE'
   };
-    fetch("http://localhost:3001"+ clienteLink_id,requestOptions)
+    fetch("http://localhost:3004"+ id,requestOptions)
 	.then(response => response.json())
         .then((result) =>{
-      this.props.componentDidUpdate(this.props.cliente)
+      this.props.updateLista(this.props.cliente)
    });
   }
   
@@ -42,9 +42,10 @@ const  handleDeleteClick = (_id) =>{
       <th scope="row"><Link to={clienteLink_id}>{cliente.id}</Link></th>
 
       <td><Link to={clienteLink_id}>{this.props.cliente.id}</Link></td>
-      <td>{this.props.cliente.registrado}</td>
-      <td>{this.props.cliente.razonSocial}</td>
-      <td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>
+      <td>{this.props.cliente.nombre}</td>
+      <td>{this.props.cliente.cuit}</td>
+      <td>{this.props.cliente.email}</td>
+     {/* <td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>*/}
       {/*Botones clientes:*/}
        <Row className="align-items-center">
               <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
