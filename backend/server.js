@@ -4,15 +4,17 @@ bodyParser = require("body-parser");
 cors = require("cors")
 var path = require("path");
 var debug = require('debug')('express-sequelize');
-const {sequelize}=require('./models/sequelizeConnection')
+const {sequelize}=require('./models/sequelizeConnection');
+const { SSL_OP_ALL } = require('constants');
 const server= express();
-
+const soap = require('soap');
+const Afip = require('@afipsdk/afip.js');
 server.use(cors());
 server.use(bodyParser.json());
 server.use(require ('./routes/routes.js'));
 server.set('port',process.env.PORT || 3004);
 server.get("/", (req, res) => res.send('APP UP'));
-
+server.use(Afip)
 
 console.log("AQUI SERVER:",path.join(__dirname,`server`));
 
@@ -23,6 +25,8 @@ sequelize.sync().then(() => {
   
   });
 });
+// soap.listen(server) 
+// soap.listen(server, '/wsdl', myService, xml);
 
 
 exports.server=server

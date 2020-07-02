@@ -1,5 +1,5 @@
 const Afip = require('@afipsdk/afip.js');
-
+const router = new express.Router;
 const date = new Date(Date.now() - ((new Date()).getTimezoneOffset() * 60000)).toISOString().split('T')[0];
 
 const data = {
@@ -68,3 +68,4 @@ afip.ElectronicBilling.createVoucher(data).then(res => {
 	console.log(res)
 });
 
+module.exports= data
