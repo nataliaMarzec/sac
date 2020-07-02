@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem,NavbarBrand } from 'reactstrap';
+import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavbarBrand } from 'reactstrap';
 import PropTypes from 'prop-types';
 
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
@@ -18,13 +18,13 @@ class DefaultHeader extends Component {
   render() {
 
     // eslint-disable-next-line
-//lista de clientes abajo
+    //lista de clientes abajo
     const { children, ...attributes } = this.props;
 
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile />
-        <NavbarBrand href="https://nataliamarzec.github.io/sac/"  target='_blank'>Sac</NavbarBrand>
+        <NavbarBrand href="https://nataliamarzec.github.io/sac/" target='_blank'>Sac</NavbarBrand>
 
         <AppSidebarToggler className="d-md-down-none" display="lg" />
 
@@ -38,35 +38,35 @@ class DefaultHeader extends Component {
             <Link to="/usuarios" className="nav-link">Usuarios</Link>
           </NavItem>
 
-       <UncontrolledDropdown nav inNavbar>
-        <DropdownToggle nav caret>Clientes</DropdownToggle>
-         <DropdownMenu left>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Clientes</DropdownToggle>
+            <DropdownMenu left>
 
-         <DropdownItem>
-    <Link to="/clientes" key="#listado"className="nav-link">Listado</Link>
-         </DropdownItem>
-         <DropdownItem>
-    <Link to="/clienteForms" className="nav-link">Registrar</Link>
-         </DropdownItem>
+              <DropdownItem>
+                <Link to="/clientes" key="#listado" className="nav-link">Listado</Link>
+              </DropdownItem>
+              <DropdownItem>
+                <Link to="/clienteForm" className="nav-link">Registrar</Link>
+              </DropdownItem>
 
-         <DropdownItem divider />
-         <DropdownItem>Facturar</DropdownItem>
-       </DropdownMenu>
-     </UncontrolledDropdown>
+              <DropdownItem divider />
+              <DropdownItem>Facturar</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
 
-      <NavItem className="px-3">
+          <NavItem className="px-3">
             <NavLink to="#" className="nav-link">Factura electrónica</NavLink>
           </NavItem>
-      </Nav>
+        </Nav>
 
-      {/*Aca comienza el navbar de arriba(header)de la derecha*/}
-         
+        {/*Aca comienza el navbar de arriba(header)de la derecha*/}
+
         <Nav className="ml-auto" navbar>
-         <AppNavbarBrand
-         full={{ src: afip, width: 50, height: 40, alt: 'Afip Logo' }}
-        />
-           {/* minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}*/}
-   
+          <AppNavbarBrand
+            full={{ src: afip, width: 50, height: 40, alt: 'Afip Logo' }}
+          />
+          {/* minimized={{ src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }}*/}
+
           <NavItem className="d-md-down-none">
             <NavLink to="#" className="nav-link"><i className="icon-bell"></i><Badge pill color="danger">5 a ver--</Badge></NavLink>
           </NavItem>
@@ -84,7 +84,7 @@ class DefaultHeader extends Component {
               <img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="natimarzec708@gmail.com" />
             </DropdownToggle>
 
-        {/*aca comienza el menu del nav de arriba a la derecha costado*/}
+            {/*aca comienza el menu del nav de arriba a la derecha costado*/}
             <DropdownMenu right>
 
               <DropdownItem header tag="div" className="text-center"><strong>Account</strong></DropdownItem>

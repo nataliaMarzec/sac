@@ -91,9 +91,9 @@ const routes = [
   
 //agregados nuevos:
  { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
- { path: '/clienteForms', exact: true, name:'ClienteForms', component: ClienteForms},
+ { path: '/clienteForms', exact: true, name:'ClienteForms', component: ClienteForms },
  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
-{ path: '/clienteForm', exact: true, name:'ClienteForm', component: ClienteForms},
+ { path: '/clienteForm', exact: true, name:'ClienteForm', component: ClienteForm },
 
 
 
