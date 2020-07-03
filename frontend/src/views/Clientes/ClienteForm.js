@@ -5,18 +5,19 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 class ClienteForm extends React.Component {
     constructor(props) {
       super(props)
-      this.cliente=this.props.unCliente
-      this.state={cliente: props.cliente} 
+      if (this.props.cliente) {
+        this.state = {cliente: props.cliente};
+      } else {
+        this.state = {cliente: {id:"", nombre: "", cuit: "", email:"" }};
+      }
       this.changeHandler = this.changeHandler.bind(this)
       this.estadoInicial=this.estadoInicial.bind(this)
       this.onSubmit=this.onSubmit.bind(this)
-      
     }
 
     estadoInicial(){
       this.setState({ cliente: {id:"", nombre: "",cuit: "",email:"" }});
     }
-
 
     componentWillReceiveProps(props) {
       this.setState({cliente: props.cliente})
@@ -53,9 +54,7 @@ class ClienteForm extends React.Component {
           },
             body: JSON.stringify(this.state.cliente)
           })
-          .then(res =>this.props.listadoClientes() )
-          .then(res => this.estadoInicial() );
-          //.then(res=>this.props.agregarCliente(this.state.cliente))
+          .then(res => this.estadoInicial());
           event.preventDefault();
   }
 
@@ -99,4 +98,5 @@ class ClienteForm extends React.Component {
 
 
 }
-  export default ClienteForm
+
+export default ClienteForm

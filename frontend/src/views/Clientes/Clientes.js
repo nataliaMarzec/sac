@@ -5,17 +5,11 @@ import PropTypes from 'prop-types';
 //import ClienteForms from './Formulario/ClienteForms.js';
 import ClienteForm from './ClienteForm';
 import Cliente from './Cliente'
+import clientesData from './ClientesData';
 
 function ClienteRow(props) {
   const cliente = props.cliente
   const clienteLink = `/clientes/${cliente.id}`
-  //const clienteLink = {
-  //pathname: `/clientes/${cliente.id}`,
- // state: {clientes:this.props.listadoClientes
- // }
-      
-
-  
 
   const getBadge = (estado) => {
     return estado === 'Activo' ? 'success' :
@@ -62,8 +56,7 @@ function ClienteRow(props) {
 class Clientes extends Component {
   constructor(props) {
     super(props);
-    this.state ={ clientes: [], seleccionado:{},cliente:{},
-                  clienteLink:`/clientes/${cliente.id}`}
+    this.state ={ clientes: [], seleccionado:{},cliente:{}}
     
     this.seleccionarCliente=this.seleccionarCliente.bind(this) 
     this.clienteChangeHandler=this.clienteChangeHandler.bind(this)
@@ -71,63 +64,20 @@ class Clientes extends Component {
     this.updateLista=this.updateLista.bind(this)
     this.agregarCliente=this.agregarCliente.bind(this)
     this.getCliente=this.getCliente.bind(this)
-    this.unCliente=this.unCliente.bind(this)
    }
 
-  
- componentDidMount() {
-    fetch(`http://localhost:3004/clientes`)
-      .then( res => res.json())
-      .then( cliens => this.setState({clientes: cliens}));
+  componentDidMount() {
+    this.listadoClientes();
+  }
+
+  listadoClientes(){
+    // fetch(`http://localhost:3004/clientes`)
+    //   .then( res => res.json())
+    //   .then( cliens => this.setState({clientes: cliens}));
+    this.setState({clientes: clientesData})
   }
   
- // componentWillUnmount() {
-    //clearClienteslista(this.clienteID);
-    //destroy();
-  //}
-  
- //RouteWithSubRoutes(route) {
- // return (
-   //<Route
-    //  path={route.path}
-    //  render={props => (
-        // pass the sub-routes down to keep nesting
-     //   <route.Cliente {...props} routes={route.routes} />
-     // )}
-  //  />
- // );
-//}
-
-
-RouteCliente(cliente){
- return(
-   <Route path={"/cliente/:id/" + cliente}
-      render={(props) =>
-     <Clientes {...props} clientes={this.state.clientes}
-      cliente={this.state.cliente} /> 
-        }
-   />)
-}
-
- 
- //unCliente = () => {
-   // var unCliente = this.state.seleccionado;
-   // return (
-    //  <Cliente
-     //   cliente={unCliente}
-     //  clienteSeleccionado={this.seleccionarCliente}
-     //   cliente={this.state.seleccionado}
-     //   agregarCliente={this.agregarCliente}
-     //   clienteChangeHandler={this.clienteChangeHandler}
-     //   listadoClientes={this.listadoClientes}
-     //   updateLista={this.updateLista}
-     // />
-    //);
-  //};
-
-  
-  
-
+   
   render(route) {
 
    const {cliente}= this.state.seleccionado
@@ -135,24 +85,16 @@ RouteCliente(cliente){
      
     return (
       <div className="animated fadeIn">
-        {/*<ClienteForms lo puse aparte
-        <ClienteForm 
-         cliente={this.state.seleccionado}
-        agregarCliente={this.agregarCliente}
-        clienteChangeHandler={this.clienteChangeHandler}
-        listadoClientes={this.listadoClientes}
-        updateLista={this.updateLista}
-         />*/}
       <Switch>
         <Route path={"/cliente/:id/" + cliente} 
               render={(props) => <ClienteForm {...props}
-          cliente={this.state.seleccionado}
-          listadoClientes={this.state.listadoClientes} 
-          agregarCliente={this.agregarCliente}
-          clienteChangeHandler={this.clienteChangeHandler}
-          listadoClientes={this.listadoClientes}
-          updateLista={this.updateLista}
-/>}/>
+                                    cliente={this.state.seleccionado}
+                                    agregarCliente={this.agregarCliente}
+                                    clienteChangeHandler={this.clienteChangeHandler}
+                                    listadoClientes={this.listadoClientes}
+                                    updateLista={this.updateLista}
+                                  />}
+        />
       </Switch>
 
   
@@ -185,14 +127,6 @@ RouteCliente(cliente){
                      updateLista={this.updateLista}
                       />
                     )}
-                    {/*{this.state.clientes.map((unCliente, index) =>
-                      <ClienteRow2 key={index} cliente={unCliente}
-                      selector={this.seleccionarCliente}
-                      listaActualizada={this.listadoClientes}
-                      clienteChangeHandler={this.clienteChangeHandler}
-	               updateLista={this.updateLista}
-                      />
-                    )} */}
                   </tbody>
                 </Table>
               </CardBody>
@@ -220,10 +154,6 @@ RouteCliente(cliente){
       </div>
     )
   }
-
- listadoClientes(){
- this.componentDidMount();
-}
 
  updateLista(unCliente) {
      var updateCliente= this.state.clientes.filter(

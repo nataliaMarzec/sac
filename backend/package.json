@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/nataliaMarzec/sac#readme",
   "dependencies": {
+    "@afipsdk/afip.js": "^0.6.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "curl": "^0.1.4",
@@ -31,6 +32,7 @@
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
+    "node-soap-client": "^0.1.0",
     "nodemon": "^2.0.3",
     "sequelize": "^5.21.6",
     "sequelize-auto": "^0.4.29"
