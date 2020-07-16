@@ -9,14 +9,14 @@ const {sequelize}=require('./models/sequelizeConnection');
 const server= express();
 const{initDatos}=require('./initDatos.js')
 const soap = require('soap');
-// const Afip = require('@afipsdk/afip.js');
+const Afip = require('@afipsdk/afip.js');
 // const openssl = require('openssl-nodejs')
 const tls = require('tls');
 
 
 server.use(cors());
 server.use(bodyParser.json());
-// server.use(Afip);
+server.use(Afip);
 // server.use(openssl);
 server.use(require ('./routes/routes.js'));
 server.use(initDatos)

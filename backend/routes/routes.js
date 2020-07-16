@@ -5,6 +5,7 @@ const controllerEmpresa = require('../controllers/EmpresaController');
 const controllerCliente = require('../controllers/ClienteController');
 const controllerVoucher = require('../controllers/VoucherController')
 const {facturar}= require('../initDatos')
+
 console.log("--------SOY ROUTER---------"); 
 
 
@@ -26,7 +27,7 @@ router.put('/clientes',(controllerCliente.updateClienteEnLista))
 
 // router.post('/voucher',(req,res)=> res.send(controllerVoucher.facturar))
 // router.post('/vouchers',(controllerVoucher.data))
-// router.post('/facturas',(facturar))
+router.post('/facturas',(req,res)=>{facturar();res.send("ok")})
 // console.log(facturar)
 
 
