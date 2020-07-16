@@ -36,7 +36,7 @@ class ClienteRow2 extends React.Component {
           <td>{this.props.cliente.nombre}</td>
 		  <td>{this.props.cliente.cuit}</td>
           <td>{this.props.cliente.email}</td>
-	   // <td>{this.props.cliente.estado}</td>
+	   {/* <td>{this.props.cliente.estado}</td> */}
           
         <Button onClick= {this.seleccionarCliente} outline color="primary"> seleccionar</Button>
         <Button onClick={()=> this.deleteHandler(this.props.cliente.id)} outline color="danger">Borrar</Button>

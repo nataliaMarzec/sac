@@ -18,6 +18,18 @@ createCliente :(req,res) => {
       res.status(200).json(cliente)
 },
 
+updateCliente :(req,res) => {
+  const cliente= Cliente.update({
+    id:req.body.id,
+    nombre:req.body.nombre,
+    cuit:req.body.cuit,
+    email:req.body.email
+  })
+   res.status(200).json(cliente)
+},
+
+
+
 getClientes :async(req, res,next) => {
     const clientes =await Cliente.findAll()
     if(![req.body.values]){

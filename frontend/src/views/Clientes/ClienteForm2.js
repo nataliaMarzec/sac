@@ -2,45 +2,67 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 
-class ClienteForm extends React.Component {
+class ClienteForm2 extends React.Component {
     constructor(props) {
       super(props)
-      this.state={cliente: props.cliente} 
+      this.state={cliente: props.cliente,clientes:this.props.clientes} 
+      // if (!this.props.cliente===null) {
+      //   this.state = {cliente: props.cliente};
+      // } else {
+      //   this.state = {cliente: {id:"", nombre: "", cuit: "", email:"" }};
+      // }
       this.changeHandler = this.changeHandler.bind(this)
       this.estadoInicial=this.estadoInicial.bind(this)
       this.onSubmit=this.onSubmit.bind(this)
+    }
+
+
+
+componentWillReceiveProps(props) {
+  this.setState({ cliente: props.cliente });
+  this.setState({ clientes: props.clientes });
+}
+
+
+ componentWillMount = () => {
+      this.props.listadoDeClientes();
+};
+
+    changeHandler(event) {
+       console.log("entrar al handle..." + event);
+        var nuevoCliente = Object.assign({}, this.state.cliente)
+        nuevoCliente[event.target.name] = event.target.value
+        this.setState({cliente: nuevoCliente})}
+
+    onSubmit(event){
+          if(this.state.cliente.id){
+        //    this.sendHandler(event)
+        //   }else {
+           this.addHandler(event)
+        }
     }
 
     estadoInicial(){
       this.setState({ cliente: {id:"", nombre: "",cuit: "",email:"" }});
     }
 
+      
+    // sendHandler(event) {
+    //     fetch('http://localhost:3004/clientes', {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json'
+    //         },
+    //        body: JSON.stringify(this.state.cliente)
+    //     }).then(this.props.listadoDeClientes())
+    //       .then(this.estadoInicial());
+    //     // event.preventDefault();
+    // }
 
-    componentWillReceiveProps(props) {
-      this.setState({cliente: props.cliente})
-    }
+     
 
-    changeHandler(event) {
-        var nuevoCliente = Object.assign({}, this.state.cliente)
-        nuevoCliente[event.target.name] = event.target.value
-        this.setState({cliente: nuevoCliente})}
-       
-        
-
-    sendHandler(event) {
-        fetch('http://localhost:3004/clientes', {
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-           body: JSON.stringify(this.state.cliente)
-        }).then(res => this.props.clienteChanged(this.state.cliente) )
-          .then(res => this.estadoInicial)
-        event.preventDefault();
-    }
-
-    addHandler(event) {
+  addHandler(event) {
       fetch('http://localhost:3004/clientes', {
           method: 'post',
           headers: {
@@ -49,18 +71,18 @@ class ClienteForm extends React.Component {
           },
             body: JSON.stringify(this.state.cliente)
           })
-          .then(res =>this.props.listadoClientes() )
-          .then(res => this.estadoInicial() );
+          .then(this.props.listadoDeClientes)
+          // .then(this.estadoInicial());
           event.preventDefault();
   }
 
-     onSubmit(event){
-      if(this.state.cliente.id){
-       this.sendHandler(event)
-      }else {
-       this.addHandler(event)
-    }
-  }
+
+searchCliente(unCliente){
+  fetch(`http://localhost:3004/clientes/cliente/` + unCliente)
+ .then(res => res.json()).then(cliens =>
+   this.setState({ unCliente:cliens }, this.addHandler(cliens))
+ );
+}
 
     render() {
 
@@ -69,7 +91,7 @@ class ClienteForm extends React.Component {
           <FormGroup>
           <Label for="exampleName">Nombre</Label>
           <Input type="text" name="nombre" id="exampleNombre" value={this.state.cliente.nombre} 
-           onChange={this.changeHandler} placeholder="Leonor Marzec" />
+           onChange={()=>this.changeHandler} placeholder="Leonor Marzec" />
         </FormGroup>
         <FormGroup>
           <Label for="exampleCuit">Cuit</Label>
@@ -94,4 +116,4 @@ class ClienteForm extends React.Component {
 
 
 }
-  export default ClienteForm
+  export default ClienteForm2

@@ -3,7 +3,8 @@
 const Sequelize = require('sequelize');
 const EmpresaModel = require('./Empresa');
 const ClienteModel=require('./Cliente');
-const FacturaModel=require('./factura')
+const FacturaModel=require('./factura');
+const VoucherModel = require('./voucher');
 
 
 const DBURL='mysql://adm:Sistema_ac20@localhost:3306/sac'
@@ -22,10 +23,10 @@ models=sequelize
 models=Sequelize
 
 const Cliente= ClienteModel(sequelize,Sequelize);
-const Empresa=EmpresaModel(sequelize,Sequelize);
-const Factura=FacturaModel(sequelize,Sequelize);
-
-
+const Empresa= EmpresaModel(sequelize,Sequelize);
+const Factura= FacturaModel(sequelize,Sequelize);
+const Voucher= VoucherModel(sequelize,Sequelize);
+// const Domicilio= domicilio(sequelize,Sequelize);
 
 
 // let SequelizeAuto = require('sequelize-auto')
@@ -48,40 +49,19 @@ sequelize.authenticate()
  });
 
 
-//en caso de querer cerrar la sesión:
 //  sequelize.close();
-
+//  sequelize.sync({force:true}).then(()=>{console.log("forzando eliminación de datos!!")})
 
 sequelize.sync()
   .then(() => {
     console.log(`Base de datos y tablas creadas, modelos sincronizados!`)
     console.log("SOY CLIENTE SYNC:",Cliente=== sequelize.models.Cliente); 
     console.log("SOY EMPRESA SYNC:",Empresa === sequelize.models.Empresa); 
-    console.log("SOY FACTURA SYNC:",Factura===sequelize.models.Factura)
-    
+    console.log("SOY VOUCHER SYNC:",Voucher===sequelize.models.Voucher)
 
   })
 
-  // Empresas.bulkCreate([
-  //   { nombre: 'magna', cuit: '2322222223',email:'@magna' },
-  //   { nombre: 'Pluma', cuit: '2322223343',email:'@pluma' },
-   
-  // ]).then(function() {
-  //   return Empresas.findAll();
-  // }).then(function(emps) {
-  //   console.log(emps);
-  // });
 
-    // Clientes.bulkCreate([
-  //   { nombre: 'Brandon Juarez', cuit: '2322222243',email:'@Brandon' },
-  //   { nombre: 'Daniel Esquivel', cuit: '20302252112',email:'@Daniel' },
-   
-  // ]).then(function() {
-  //   return Clientes.findAll()
-  // }).then(function(cli) {
-  //   console.log(cli);
-  // });
- 
 
 
 
@@ -89,8 +69,9 @@ module.exports = {
   sequelize,
   Cliente,
   Empresa,
-  Factura
-
+  Factura,
+  Voucher
+// Domicilio
 };
 
 

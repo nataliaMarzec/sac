@@ -2,7 +2,7 @@ var {Op} = require('sequelize');
 const {Empresa} = require('../models/sequelizeConnection.js')
 
 
-console.log("--------------CONTROLLER----------------")
+console.log("--------------CONTROLLER Empresa----------------")
 
 
    

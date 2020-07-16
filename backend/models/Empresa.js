@@ -35,14 +35,13 @@ module.exports = function(sequelize, DataTypes) {
 		//   },
 		},
 		
-		
-		//OPCIONES
+	
 		{
-			
-			timestamps: false,
 			freezeTableName: true,
 			tableName: 'Empresas',
 			modelName: 'Empresa'
+	
+            
 		},
 	
 		

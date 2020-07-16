@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
+// import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
@@ -36,14 +37,23 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 
 
 //agregados nuevos:
-const Clientes = React.lazy(() => import('./views/Clientes/Clientes'));
+const Clientes =React.lazy(()=> import('./views/Clientes/Clientes'));
 const Cliente = React.lazy(() => import('./views/Clientes/Cliente'));
-const ClienteForms = React.lazy(() => import('./views/Clientes/Formulario/ClienteForms'));
 const ClienteForm = React.lazy(() => import('./views/Clientes/ClienteForm'));
+const ClienteForm2 = React.lazy(() => import('./views/Clientes/ClienteForm2'));
+const ClienteRow = React.lazy(() => import('./views/Clientes/ClienteRow'));
 
 const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
 const Usuario = React.lazy(() => import('./views/Usuarios/Usuario'));
 {/*const UsuarioForms = React.lazy(() => import('./views/Usuarios/Formulario/ClienteForms'));*/}
+
+const Facturas = React.lazy(()=> import('./views/Facturas/Facturas'));
+const FacturaRow = React.lazy(() => import('./views/Facturas/FacturaRow'));
+const FacturaForm = React.lazy(() => import('./views/Facturas/FacturaForm'));
+
+const Empresas = React.lazy(()=> import('./views/Empresa/Empresas'));
+const EmpresaForm = React.lazy(() => import('./views/Empresa/EmpresaForm'));
+const EmpresaRow = React.lazy(() => import('./views/Empresa/EmpresaRow'));
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -91,16 +101,28 @@ const routes = [
   
 //agregados nuevos:
  { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
- { path: '/clienteForms', exact: true, name:'ClienteForms', component: ClienteForms },
  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
  { path: '/clienteForm', exact: true, name:'ClienteForm', component: ClienteForm },
+ { path: '/clienteForm2', exact: true, name:'ClienteForm2', component: ClienteForm2},
+ { path:'./clienteRow', exact: true, name:'ClienteRow', component: ClienteRow},
 
-
-
-{ path: '/usuarios', exact: true, key:'#listado', name: 'Usuarios', component: Usuarios },
+ { path: '/usuarios', exact: true, key:'#listadoUsuario', name: 'Usuarios', component: Usuarios },
  { path: '/usuarios/:id', exact: true, name: 'Usuario Detalles', component: Usuario },
- {/* path: '/usuarioForms', exact: true, name:'UsuarioForms', component: UsuarioForms*/}
+ {/* path: '/usuarioForms', exact: true, name:'UsuarioForms', component: UsuarioForms*/},
 
+ { path: '/facturas', exact: true,key:'#listadoFacturas', name:'Facturas', component:Facturas },
+ { path: '/facturaForm', exact: true, name:'FacturaForm', component: FacturaForm},
+ { path:'./facturaRow', exact: true, name:'FacturaRow', component: FacturaRow},
+
+
+ { path: '/empresas', exact: true,key:'#listadoEmpresas', name:'Empresas', component:Empresas },
+ { path: '/empresaForm', exact: true, name:'EmpresaForm', component: EmpresaForm},
+ { path:'./empresaRow', exact: true, name:'EmpresaRow', component: EmpresaRow},
 ];
+
+
+
+
+
 
 export default routes;
