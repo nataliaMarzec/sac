@@ -2,26 +2,17 @@ import React,{Component} from 'react';
 import {Button,Card, CardBody, CardHeader, Col, Row, Table } from 'reactstrap';
 
 //import clientesData from './ClientesData'
-import Clientes from './Clientes'
+// import Clientes from './Clientes'
 
 class Cliente extends React.Component{
    constructor(props){
        super(props)
        this.cliente=props.cliente
-       this.listadoClientes=this.listadoClientes.bind(this)
-       //this.state={cliente:this.state.unCliente.cliente,
-       //           clientes:this.state.unCliente.listadoClientes}
-
+       this.state=this.props.listadoClientes
+      
      
   }  
    
-
-  //componentWillReceive(props){
-  // this.state={clientes:this.state.clientes,
-  // cliente:this.state.cliente}
-   //this.setState({cliente:cliente})
-  // this.setState({clientes:clientes})
-//}
 
   componentWillReceive(props){
   this.setState({listadoClientes:this.props.listadoClientes})
@@ -41,7 +32,7 @@ class Cliente extends React.Component{
     {/*--machea con los parametros de clientesData*/}
     {/* const cliente = clientesData.find( cliente => cliente.id.toString() === this.props.match.params.id)*/}
    
-   const cliente =this.listadoClientes.find( cliente => cliente.id.toString() === this.props.match.params.id)
+   const cliente =this.props.listadoClientes.find( cliente => cliente.id.toString() === this.props.match.params.id)
   
  
     const clienteDetalles = cliente ? Object.entries(cliente) : [['id', (<span><i className="text-muted icon-ban"></i> No encuentra Cliente</span>)]]

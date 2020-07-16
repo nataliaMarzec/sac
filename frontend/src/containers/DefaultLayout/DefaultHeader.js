@@ -38,25 +38,56 @@ class DefaultHeader extends Component {
             <Link to="/usuarios" className="nav-link">Usuarios</Link>
           </NavItem>
 
+      
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Empresa</DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>
+                <Link to="/empresas" key="#listadoEmpresa" className="nav-link">Listado</Link>
+              </DropdownItem>
+              <DropdownItem>
+                <Link to="/empresaForm" className="nav-link">Registrar</Link>
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem>Detalles</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+      
+
+         <NavItem>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Clientes</DropdownToggle>
-            <DropdownMenu left>
-
+            <DropdownMenu right>
               <DropdownItem>
                 <Link to="/clientes" key="#listado" className="nav-link">Listado</Link>
               </DropdownItem>
               <DropdownItem>
-                <Link to="/clienteForm" className="nav-link">Registrar</Link>
+                <Link to="/clienteForm2" className="nav-link">Registrar</Link>
               </DropdownItem>
-
               <DropdownItem divider />
-              <DropdownItem>Facturar</DropdownItem>
+              <DropdownItem>Detalles</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+          </NavItem>
+           
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Vouchers</DropdownToggle>
+            <DropdownMenu left>
+              <DropdownItem>
+                <Link to="/facturas" key="#listado" className="nav-link">Listado</Link>
+              </DropdownItem>
+              <DropdownItem>
+                <Link to="/facturaForm" className="nav-link">Registrar</Link>
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem>Detalles</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
 
-          <NavItem className="px-3">
-            <NavLink to="#" className="nav-link">Factura electrónica</NavLink>
-          </NavItem>
+
+        <NavItem className="px-3">
+          <NavbarBrand href="afip.gob.ar" target='_blank'>afip</NavbarBrand>
+         </NavItem>
         </Nav>
 
         {/*Aca comienza el navbar de arriba(header)de la derecha*/}

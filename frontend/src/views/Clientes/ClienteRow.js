@@ -1,69 +1,115 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import {Button,Badge,Col, Row } from 'reactstrap';
-
-
-export default function ClienteRow(props) {
+import { Button,Col ,Row} from 'reactstrap'
+import {Route,Link,Switch} from 'react-router-dom';
+class ClienteRow extends React.Component {
   
+    constructor(props) {
+        super(props)
+        this.seleccionarCliente = this.seleccionarCliente.bind(this)
+        this.deleteHandler=this.deleteHandler.bind(this)
+        this.onDelete=this.onDelete.bind(this)
+        this.cliente = props.cliente
+        this.clienteLink = `/clientes/${this.props.cliente.id}`
+    }
 
- //validaciones=>static propTypes{title: PropTypes.string.isRequired};
    
- const cliente = props.cliente
- const clienteLink_id = `/clientes/${cliente.id}`
-  
+  // function ClienteRow(props) {
+  // const getBadge = (estado) => {
+  //   return estado === 'Activo' ? 'success' :
+  //     estado === 'Inactivo' ? 'warning':
+  //   estado === 'Pendiente' ? 'info':
+  //   'success'
+  //     }
 
-const getBadge = (estado) => {
-    return estado === 'Activo' ? 'success' :
-      estado === 'Inactivo' ? 'warning':
-    estado === 'Pendiente' ? 'info':
- 'success'
-      }
+    seleccionarCliente() {
+        this.props.cliente(this.props.cliente);
+    }
    
-const  handleDeleteClick = (_id) =>{
-    const requestOptions ={ 
-     method: 'DELETE'
-  };
-    fetch("http://localhost:3004"+ id,requestOptions)
-	.then(response => response.json())
-        .then((result) =>{
-      this.props.updateLista(this.props.cliente)
-   });
-  }
-  
-  //seleccionarCliente= this.props.selector(this.props.cliente);
+    onDelete(){
+      this.props.updateLista(this.props.cliente);
+    }
 
+    deleteHandler(id) {
+       fetch('http://localhost:3004/clientes/'+id, {
+          method: 'DELETE',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+        }).then(this.onDelete)
+    }
     
+    render() {
 
-
-
-  return (
-    <tr key={cliente.id.toString()}>
-
-      <th scope="row"><Link to={clienteLink_id}>{cliente.id}</Link></th>
-
-      <td><Link to={clienteLink_id}>{this.props.cliente.id}</Link></td>
-      <td>{this.props.cliente.nombre}</td>
-      <td>{this.props.cliente.cuit}</td>
-      <td>{this.props.cliente.email}</td>
-     {/* <td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>*/}
-      {/*Botones clientes:*/}
-       <Row className="align-items-center">
-              <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-                <Button block color="primary">Update</Button>
-              </Col>
-               <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-                <Button block color="success" onClick= {this.seleccionarCliente} outline >Save</Button>
-              </Col>
-              <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
-                <Button block color="danger" onClick={()=> handleDeleteClick(this.props.cliente.id)} outline>Delete</Button>
-              </Col>
-             
-            </Row>
-
-
-    </tr>
-  )
+      return (
+      // <tr>
+      
+      <tr key={this.props.cliente.id.toString()}>
+        <th scope="row"><Link to={this.clienteLink}>{this.props.cliente.id}</Link></th>
+        {/* <td>{this.props.cliente.id}</td>  */}
+          <td>{this.props.cliente.nombre}</td>
+		  <td>{this.props.cliente.cuit}</td>
+          <td>{this.props.cliente.email}</td>
+	    <td>{this.props.cliente.estado}</td>
+           {/* <td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>*/}
+     <Row className="align-items-center">
+     <Col col="12" sm="6" md="2" xl className="mb-3 mb-xl-0"> 
+        <Button onClick={()=> this.seleccionarCliente()} outline color="primary"> seleccionar</Button>
+        </Col> 
+     <Col col="12" sm="6" md="2" xl className="mb-3 mb-xl-0"> 
+        <Button onClick={()=> this.deleteHandler(this.props.cliente.id)} outline color="danger">Borrar</Button>
+      </Col>
+     </Row>
+      </tr>
   
-  
+      )
+    
+    }
+
 
 }
+  export default ClienteRow
+
+
+
+
+
+
+
+
+  
+//   return (
+//     <tr key={cliente.id.toString()}>
+//       <th scope="row"><Link to={clienteLink}>{cliente.id}</Link></th>
+//       <td><Link to={clienteLink}>{cliente.nombre}</Link></td>
+//       <td>{cliente.cuit}</td>
+//       <td>{cliente.email}</td>
+
+//       <Row className="align-items-center">
+//         <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+//         <Button block color="danger" onClick={()=>this.handleDeleteClick(cliente.id)} outline>Delete</Button>
+//               </Col>
+             
+//             </Row>
+
+      
+//     </tr>
+//   )
+// }
+
+{/* <Row className="align-items-center">
+<Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+  <Button block color="primary">Update</Button>
+</Col>
+ <Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+  <Button block color="success" onClick= {this.seleccionarCliente} outline >Save</Button>
+</Col>
+<Col col="6" sm="4" md="2" xl className="mb-3 mb-xl-0">
+  <Button block color="danger" onClick={()=> handleDeleteClick(this.props.cliente.id)} outline>Delete</Button>
+</Col>
+
+</Row>
+
+
+</tr>
+) */}

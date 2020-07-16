@@ -28,6 +28,9 @@ module.exports = function(sequelize, DataTypes) {
 	    	type: DataTypes.STRING(50),
 			allowNull: true
 			},	
+		// activado:{
+		// 	value:true
+		// },
 
 		// empresa_cliente_id:{
 		// 	type: DataTypes.INTEGER(),
@@ -39,7 +42,7 @@ module.exports = function(sequelize, DataTypes) {
 				
 
 		// },
-		// activados:true,
+		
 		},
 	    
 	{
@@ -59,7 +62,7 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false
 				  }
 				});
-			models.Cliente.hasMany(models.Domicilio);
+			// models.Cliente.hasMany(models.Domicilio);
 			models.Cliente.hasMany(models.Factura);
 
 		},

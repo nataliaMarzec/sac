@@ -90,6 +90,9 @@ npm install express body-parser --save
 ___
  
 ### Ver instalaciones sequelize.md:
+    Instación de faker para generar datos en seed sequelize :
+    
+    ´npm i faker´
 
 ### Instalaciones base de datos:
 *~Base de datos :
