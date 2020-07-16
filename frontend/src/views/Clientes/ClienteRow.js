@@ -21,8 +21,8 @@ class ClienteRow extends React.Component {
   //   'success'
   //     }
 
-    seleccionarCliente() {
-        this.props.cliente(this.props.cliente);
+    seleccionarCliente(unCliente) {
+        this.props.cliente(unCliente);
     }
    
     onDelete(){
@@ -38,23 +38,22 @@ class ClienteRow extends React.Component {
           },
         }).then(this.onDelete)
     }
-    
+     // <tr key={this.props.cliente.id.toString()}>
+     //<td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>
     render() {
 
       return (
-      // <tr>
       
-      <tr key={this.props.cliente.id.toString()}>
+      
+     
+      <tr>
         <th scope="row"><Link to={this.clienteLink}>{this.props.cliente.id}</Link></th>
-        {/* <td>{this.props.cliente.id}</td>  */}
           <td>{this.props.cliente.nombre}</td>
 		  <td>{this.props.cliente.cuit}</td>
-          <td>{this.props.cliente.email}</td>
-	    <td>{this.props.cliente.estado}</td>
-           {/* <td><Link to={clienteLink_id}><Badge color={getBadge(cliente.estado)}>{cliente.estado}</Badge></Link></td>*/}
+          <td>{this.props.cliente.email}</td>    
      <Row className="align-items-center">
      <Col col="12" sm="6" md="2" xl className="mb-3 mb-xl-0"> 
-        <Button onClick={()=> this.seleccionarCliente()} outline color="primary"> seleccionar</Button>
+        <Button onClick={()=> this.seleccionarCliente(this.props.cliente)} outline color="primary"> seleccionar</Button>
         </Col> 
      <Col col="12" sm="6" md="2" xl className="mb-3 mb-xl-0"> 
         <Button onClick={()=> this.deleteHandler(this.props.cliente.id)} outline color="danger">Borrar</Button>

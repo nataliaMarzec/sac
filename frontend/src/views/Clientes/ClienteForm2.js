@@ -5,12 +5,12 @@ import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 class ClienteForm2 extends React.Component {
     constructor(props) {
       super(props)
-      this.state={cliente: props.cliente,clientes:this.props.clientes} 
-      // if (!this.props.cliente===null) {
-      //   this.state = {cliente: props.cliente};
-      // } else {
-      //   this.state = {cliente: {id:"", nombre: "", cuit: "", email:"" }};
-      // }
+      this.state={clientes:this.props.clientes} 
+      if (this.props.cliente) {
+        this.state = {cliente: props.cliente};
+      } else {
+        this.state = {cliente: {id:"", nombre: "", cuit: "", email:"" }};
+      }
       this.changeHandler = this.changeHandler.bind(this)
       this.estadoInicial=this.estadoInicial.bind(this)
       this.onSubmit=this.onSubmit.bind(this)
@@ -29,15 +29,14 @@ componentWillReceiveProps(props) {
 };
 
     changeHandler(event) {
-       console.log("entrar al handle..." + event);
         var nuevoCliente = Object.assign({}, this.state.cliente)
         nuevoCliente[event.target.name] = event.target.value
         this.setState({cliente: nuevoCliente})}
 
     onSubmit(event){
           if(this.state.cliente.id){
-        //    this.sendHandler(event)
-        //   }else {
+           this.sendHandler(event)
+          }else {
            this.addHandler(event)
         }
     }
@@ -47,18 +46,18 @@ componentWillReceiveProps(props) {
     }
 
       
-    // sendHandler(event) {
-    //     fetch('http://localhost:3004/clientes', {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Accept': 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //        body: JSON.stringify(this.state.cliente)
-    //     }).then(this.props.listadoDeClientes())
-    //       .then(this.estadoInicial());
-    //     // event.preventDefault();
-    // }
+    sendHandler(event) {
+        fetch('http://localhost:3004/clientes', {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+           body: JSON.stringify(this.state.cliente)
+        }).then(this.props.listadoDeClientes())
+          .then(this.estadoInicial());
+        // event.preventDefault();
+    }
 
      
 
@@ -72,17 +71,12 @@ componentWillReceiveProps(props) {
             body: JSON.stringify(this.state.cliente)
           })
           .then(this.props.listadoDeClientes)
-          // .then(this.estadoInicial());
+           .then(this.estadoInicial());
           event.preventDefault();
   }
 
 
-searchCliente(unCliente){
-  fetch(`http://localhost:3004/clientes/cliente/` + unCliente)
- .then(res => res.json()).then(cliens =>
-   this.setState({ unCliente:cliens }, this.addHandler(cliens))
- );
-}
+
 
     render() {
 

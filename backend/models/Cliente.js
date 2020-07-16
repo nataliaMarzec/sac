@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     	},
 		nombre: {
 		    type: DataTypes.STRING(35),
-		    allowNull: false
+		    allowNull: true
 	     // validate: {
 		     // notNull: {
 	     	// 	msg: 'Por favor completa tu nombre'
