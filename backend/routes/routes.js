@@ -3,7 +3,7 @@ const router = new express.Router;
 // const Afip = require('@afipsdk/afip.js');
 const controllerEmpresa = require('../controllers/EmpresaController');
 const controllerCliente = require('../controllers/ClienteController');
-const controllerVoucher = require('../controllers/VoucherController')
+// const controllerVoucher = require('../controllers/VoucherController')
 const {facturar}= require('../initDatos')
 
 console.log("--------SOY ROUTER---------"); 
