@@ -1,5 +1,7 @@
 _...En proceso de desarrollo..._
 
+[![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=17-testeo)](https://travis-ci.org/nataliaMarzec/sac)
+
 [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
 
 
