@@ -5,31 +5,43 @@ Cliente = require('./sequelizeConnection')
 module.exports = function(sequelize, DataTypes) {
 	const Empresa = sequelize.define('Empresa',{
 		id:{
-		type: Sequelize.INTEGER(12),
+		    type: Sequelize.INTEGER(12),
             autoIncrement: true,
             primaryKey: true
- 
 		},
-
 		nombre: {
-		        type: DataTypes.STRING(25),
-		        allowNull: true
+		    type: DataTypes.STRING(25),
+		    allowNull: true
 	     // validate: {
 		     // notNull: {
 	     	// 	msg: 'Por favor completa tu nombre'
 		   // }
 		    },
 	    cuit: {
-	     	type: DataTypes.STRING(11),
+	     	type:Sequelize.INTEGER(11),
 	     	allowNull:true
 			},
         email: {
 	    	type: DataTypes.STRING(50),
 			allowNull: true
 			},	
+		direccion_id: {
+			type: DataTypes.STRING(50),
+			allowNull: true
+		},
+		razonSocial:{
+			type:DataTypes.STRING(50),
+			allowNull:true
+		},
+		cert:Sequelize.STRING(),
+        key:Sequelize.STRING(),
+        deshabilitada: { 
+            type:Datatypes.BOOLEAN, 
+            default: false 
+    },
 		// clientesActivados: {
 		// 	include: [
-		// 	//   { model:Cliente, where: { active: true }}
+		// 	//   { model:Cliente, where: { activado: true }}
 		// 	{model:Cliente}
 		// 	]
 		//   },
@@ -47,7 +59,7 @@ module.exports = function(sequelize, DataTypes) {
 		
   );
   	Empresa.associate = models => {
-		models.Empresa.hasMany(models.Cliente)
+		models.Empresa.hasMany(models.Cliente);
 	  },
      
      console.log("SOY EMPRESA:",Empresa === sequelize.models.Empresa);   
@@ -60,8 +72,4 @@ module.exports = function(sequelize, DataTypes) {
 
 
 	
-
-
-
-
 

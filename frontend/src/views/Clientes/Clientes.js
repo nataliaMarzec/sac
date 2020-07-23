@@ -21,7 +21,6 @@ class Clientes extends Component {
     this.listadoDeClientes=this.listadoDeClientes.bind(this)
     this.updateLista=this.updateLista.bind(this)
   
-    
    }
  
       
@@ -29,19 +28,11 @@ class Clientes extends Component {
       this.listadoDeClientes();
     }
 
-  estadoInicial(){
-      this.setState({ cliente: {id:"", nombre: "",cuit: "",email:"" }});
-    }
   
   // listadoDeClientes(){
   //   this.listadoClientes()
   // }
   
-  
-
-  
-
-
 
   updateLista(unCliente) {
     var updateCliente= this.state.clientes.filter(
@@ -55,6 +46,8 @@ class Clientes extends Component {
    this.setState({seleccionado: unCliente})
  }
 
+
+
   clienteChangeHandler(unCliente) {
    var nuevaLista = this.state.clientes.map( (item) =>  (item.id !== unCliente.id) ?  item : unCliente   )
    this.setState({clientes: nuevaLista, seleccionado: unCliente})
@@ -65,15 +58,15 @@ class Clientes extends Component {
   );
   this.setState({ clientes: updateCliente, cliente: {} });
 }
+listadoDeClientes(){
+  fetch(`http://localhost:3004/clientes`)
+    .then( res => res.json())
+    .then( cliens => this.setState({clientes: cliens}));
+    // this.setState({clientes:clientesData})
+}
 
 
-
- listadoDeClientes(){
-   fetch(`http://localhost:3004/clientes`)
-     .then( res => res.json())
-     .then( cliens => this.setState({clientes: cliens}));
-   // this.setState({clientes: clientesData})
- }
+ 
    
 
 render(){
@@ -128,10 +121,10 @@ render(){
         {/*<Row>*/}
             <Card>
               <CardHeader>
-                <i className="fa fa-align-justify"></i> ClienteForm  <small className="text-muted">poner otro form</small>
+                <i className="fa fa-align-justify"></i> Info<small className="text-muted">poner otro form</small>
               </CardHeader>
               <CardBody>
-              <h1> modificar columnas:Col xs="12" sm="6" lg="3"</h1>
+              <h1> </h1>
               </CardBody>
             </Card>
         {/* </Col>*/}
@@ -146,6 +139,8 @@ render(){
    
           
   }
+
+  
 
 //  clientes(){
 //   const cliens =this.props.listadoClientes;

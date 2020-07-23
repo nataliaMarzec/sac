@@ -5,13 +5,13 @@ cors = require("cors")
 var path = require("path");
 var debug = require('debug')('express-sequelize');
 const {sequelize}=require('./models/sequelizeConnection');
-// const { SSL_OP_ALL} = require('constants');
 const server= express();
 const{initDatos}=require('./initDatos.js')
 const soap = require('soap');
 // const Afip = require('@afipsdk/afip.js');
 // const openssl = require('openssl-nodejs')
-const tls = require('tls');
+// const tls = require('tls');
+// import Afip from '@afipsdk/afip.js'
 
 
 server.use(cors());
@@ -19,16 +19,16 @@ server.use(bodyParser.json());
 // server.use(Afip);
 // server.use(openssl);
 server.use(require ('./routes/routes.js'));
-server.use(initDatos)
+// server.use(initDatos)
 server.set('port',process.env.PORT || 3004);
 server.get("/", (req, res) => res.send('APP UP'));
 
 
 console.log("AQUI SERVER:",path.join(__dirname,`server`));
-console.log("CIFRADOS------:",server.use(tls.getCiphers))
+// console.log("CIFRADOS------:",server.use(tls.getCiphers));
 
-
-sequelize.sync({force:true})
+// sequelize.sync({force:true})
+sequelize.sync()
 .then(() => {console.log(`--modelos sincronizados!!!--`)})
 .then(()=>{initDatos()})
 .then(() => {
@@ -37,8 +37,7 @@ sequelize.sync({force:true})
   console.log("--CONECCIONES--",server.connections)
   });
 });
-// soap.listen(server) 
-// soap.listen(server, '/wsdl', myService, xml);
+
 
 
 

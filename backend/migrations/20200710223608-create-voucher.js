@@ -1,4 +1,6 @@
 'use strict';
+const {Empresa,Cliente,Usuario} = require('../models/sequelizeConnection');
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Vouchers', {
@@ -8,6 +10,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      estado:Sequelize.BOOLEAN,
+      descripcion:Sequelize.STRING(),
+      resultados:Sequelize.STRING(),
+      // empresa_id: Empresa.id,
+      // usuario_id: Usuario.id,
+
+
       cantidadComprobantesARegistrar: {
         type: Sequelize.STRING
       },

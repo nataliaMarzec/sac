@@ -1,8 +1,8 @@
 var {Op} = require('sequelize');
-const {Voucher} = require('../models/sequelizeConnection.js')
+// const {Voucher} = require('../models/sequelizeConnection.js')
 // const {Cliente} = require('../models/sequelizeConnection.js')
 // const Afip = require('@afipsdk/afip.js');
-var faker = require('faker');
+
 
 console.log("--------------CONTROLLER Voucher----------------")
 
@@ -66,19 +66,6 @@ data:(req,res)=>{
 //       return res.status(200).json(vouchers)
 //     }
 //   },
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

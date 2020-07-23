@@ -2,9 +2,6 @@ var {Op} = require('sequelize');
 const {Cliente} = require('../models/sequelizeConnection.js')
 
 
-
-
-
  
 module.exports = {
 
@@ -27,6 +24,30 @@ updateCliente :(req,res) => {
   })
    res.status(200).json(cliente)
 },
+
+updateClienteEnLista :(req, res) =>{
+  if (req.body.id) {
+    const clien = Cliente.build()
+
+    clien.updateAttributes({
+      id:req.body.id,
+      nombre:req.body.nombre,
+      cuit:req.body.cuit,
+      email:req.body.email
+    })
+      .on('success', id => {
+        res.json({
+          success: true
+        }, 200)
+      })
+      .on('failure', error => {
+        throw new Error(error)
+      })
+  }
+  else
+    throw new Error('Datos no proporcionados')
+},
+
 
 
 
