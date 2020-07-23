@@ -36,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
 		cert:Sequelize.STRING(),
         key:Sequelize.STRING(),
         deshabilitada: { 
-            type:Datatypes.BOOLEAN, 
+            type:Sequelize.BOOLEAN(), 
             default: false 
     },
 		// clientesActivados: {
