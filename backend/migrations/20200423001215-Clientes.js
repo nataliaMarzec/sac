@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
+  up: (queryInterface, Sequelize,DataTypes) => {
     return queryInterface.createTable("Clientes", {
      id:{
       type: Sequelize.INTEGER,
@@ -15,7 +15,7 @@ module.exports = {
         unique: false
       },
       cuit: {
-        type: Sequelize.INTEGER(11),
+        type:DataTypes.BIGINT.UNSIGNED,
         allowNull:true
       },
       email: {

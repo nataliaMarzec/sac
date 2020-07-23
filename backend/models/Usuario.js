@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 		   // }
 		},
 	    cuit: {
-	     	type: Sequelize.INTEGER(11),
+	     	type:Sequelize.BIGINT.UNSIGNED,
 	     	allowNull:true
 			},
         email: {

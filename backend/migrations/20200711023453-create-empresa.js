@@ -1,6 +1,6 @@
 'use strict';
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  up: async (queryInterface, Sequelize,DataTypes) => {
     await queryInterface.createTable('Empresas', {
       id: {
         allowNull: false,
@@ -12,7 +12,7 @@ module.exports = {
         type: Sequelize.STRING()
       },
       cuit: {
-        type:Sequelize.INTEGER(11),
+        type: Sequelize.BIGINT.UNSIGNED,
         allowNull:true
      },
       email: {

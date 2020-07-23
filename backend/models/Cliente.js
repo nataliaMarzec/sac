@@ -3,7 +3,7 @@ const { Sequelize ,Op,Model} = require('sequelize');
 const {Empresa,Voucher} = require('./sequelizeConnection.js');
 
 
-module.exports = function(sequelize) {
+module.exports = function(sequelize,DataTypes) {
 	const Cliente = sequelize.define('Cliente',{
 		id:{
 		    type:Sequelize.INTEGER,
@@ -20,7 +20,7 @@ module.exports = function(sequelize) {
 		   // }
 		},
 	    cuit: {
-	     	type:Sequelize.INTEGER(11),
+	     	type:DataTypes.BIGINT.UNSIGNED,
 	     	allowNull:true
 			},
         email: {
