@@ -1,19 +1,18 @@
 'use strict'
-const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
-const Empresa = require('./sequelizeConnection.js');
-const Factura = require('./sequelizeConnection.js');
-const Domicilio = require('./sequelizeConnection.js');
+const { Sequelize ,Op,Model} = require('sequelize');
+const {Empresa,Voucher} = require('./sequelizeConnection.js');
 
-module.exports = function(sequelize, DataTypes) {
+
+module.exports = function(sequelize) {
 	const Cliente = sequelize.define('Cliente',{
 		id:{
-		    type: Sequelize.INTEGER,
+		    type:Sequelize.INTEGER,
 		 	autoIncrement: true,
 			primaryKey: true
 
     	},
 		nombre: {
-		    type: DataTypes.STRING(35),
+		    type:Sequelize.STRING(35),
 		    allowNull: true
 	     // validate: {
 		     // notNull: {
@@ -21,16 +20,17 @@ module.exports = function(sequelize, DataTypes) {
 		   // }
 		},
 	    cuit: {
-	     	type: DataTypes.STRING(12),
+	     	type:Sequelize.INTEGER(11),
 	     	allowNull:true
 			},
         email: {
-	    	type: DataTypes.STRING(50),
+	    	type:Sequelize.STRING(50),
 			allowNull: true
 			},	
-		// activado:{
-		// 	value:true
-		// },
+		activado:{
+			type:Sequelize.BOOLEAN,
+			default:false
+		},
 
 		// empresa_cliente_id:{
 		// 	type: DataTypes.INTEGER(),
@@ -63,7 +63,7 @@ module.exports = function(sequelize, DataTypes) {
 				  }
 				});
 			// models.Cliente.hasMany(models.Domicilio);
-			models.Cliente.hasMany(models.Factura);
+			models.Cliente.hasMany(models.Voucher);
 
 		},
      

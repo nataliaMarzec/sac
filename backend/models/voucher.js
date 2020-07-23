@@ -1,7 +1,7 @@
 'use strict';
 const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
-const {Empresa,Cliente} = require('./sequelizeConnection');
-// Cliente = require('./sequelizeConnection')
+const {Empresa,Cliente,Usuario} = require('./sequelizeConnection');
+
 
 
 module.exports = (sequelize, DataTypes) => {
@@ -10,8 +10,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: DataTypes.INTEGER
+      type:Sequelize.INTEGER
     },
+    estado:DataTypes.BOOLEAN,
+    descripcion:DataTypes.STRING,
+    resultados: DataTypes.STRING,
+    // empresa_id: Empresa.id,
+    // usuario_id: Usuario.id,
+
+   
     cantidadComprobantesARegistrar: DataTypes.STRING,
     puntoVenta: DataTypes.STRING,
     comprobanteTipo: DataTypes.STRING,
@@ -44,6 +51,8 @@ module.exports = (sequelize, DataTypes) => {
 });
   Voucher.associate = function(models) {
   models.Voucher.belongsTo(models.Empresa, {onDelete: 'CASCADE',
+    foreignKey: {allowNull: false}}),
+  models.Voucher.belongsTo(models.Usuario, {onDelete: 'CASCADE',
     foreignKey: {allowNull: false}}),
   models.Voucher.belongsTo(models.Cliente, {onDelete: 'CASCADE',
     foreignKey: {allowNull: false}})

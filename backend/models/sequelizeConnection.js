@@ -5,7 +5,7 @@ const EmpresaModel = require('./Empresa');
 const ClienteModel=require('./Cliente');
 const FacturaModel=require('./factura');
 const VoucherModel = require('./voucher');
-
+const UsuarioModel= require('./Usuario');
 
 const DBURL='mysql://adm:Sistema_ac20@localhost:3306/sac'
 let sequelize=new Sequelize(DBURL,{
@@ -26,8 +26,8 @@ const Cliente= ClienteModel(sequelize,Sequelize);
 const Empresa= EmpresaModel(sequelize,Sequelize);
 const Factura= FacturaModel(sequelize,Sequelize);
 const Voucher= VoucherModel(sequelize,Sequelize);
+const Usuario = UsuarioModel(sequelize,Sequelize)
 // const Domicilio= domicilio(sequelize,Sequelize);
-
 
 // let SequelizeAuto = require('sequelize-auto')
 // module.exports = function(config, callback) {
@@ -70,7 +70,8 @@ module.exports = {
   Cliente,
   Empresa,
   Factura,
-  Voucher
+  Voucher,
+  Usuario
 // Domicilio
 };
 

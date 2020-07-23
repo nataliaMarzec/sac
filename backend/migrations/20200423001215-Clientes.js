@@ -9,26 +9,24 @@ module.exports = {
             primaryKey: true
  
      },
-      // id: {
-      //   type: Sequelize.STRING(11),
-      //   allowNull: false,
-      //   autoIncrement: true,
-      //   primaryKey: true,
-      //   autoIncrement: true
-      // },
       nombre: {
         type: Sequelize.STRING(35),
         allowNull: true,
         unique: false
       },
       cuit: {
-        type: Sequelize.STRING(12),
+        type: Sequelize.INTEGER(11),
         allowNull:true
       },
       email: {
         type: Sequelize.STRING(50),
         allowNull: true
       },
+      activado:{
+        type: Sequelize.BOOLEAN,
+        default:false
+      },
+  
       
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE

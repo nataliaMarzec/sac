@@ -6,6 +6,8 @@ const {Empresa,Cliente,Voucher} = require("./models/sequelizeConnection");
 // const { facturar, data } = require("./controllers/VoucherController");
 const Afip = require('@afipsdk/afip.js');
 const ElectronicBilling = require("@afipsdk/afip.js/src/Class/ElectronicBilling");
+const forge = require('node-forge');
+const AfipWebService = require("@afipsdk/afip.js/src/Class/AfipWebService");
 
 
 function initDatos(){
@@ -65,12 +67,18 @@ function initDatos(){
 
 
 function facturar(){
-    const afip = new Afip({CUIT:27290268163})
-   
+    // const afip = new Afip({CUIT:27290268163,RES_FOLDER: './node_modules/@afipsdk/afip.js/src/Afip_res',
+    // TA_FOLDER: "./node_modules/@afipsdk/afip.js/src/Afip_res",cert:'afip.cert',
+    // key:'private_key.key',WSAA_WSDL:"./node_modules/@afipsdk/afip.js/src/Afip_res"});
+    // afip.CreateServiceTA(CUITCOMPUTADOR='27290268163', ALIASCOMPUTADOR='escudero',CUITREPRESENTADO='27290268163',SERVICIO= 'ws://wsfe', CUITAUTORIZANTE='27290268163');
+    // console.log("retornar token autorizacion service",afip.GetServiceTA())
+   const afip = new Afip({CUIT:27290268163,cert:'afip.cert',key:'private_key.key'});
     const date = new Date(Date.now() - ((new Date()).getTimezoneOffset() * 60000)).toISOString().split('T')[0];
-    console.log(date)
-
-  
+    console.log(date);
+    afip.CreateServiceTA('wsfe')
+    // console.log("______",afip.GetServiceTA())
+    // const afipWebService = new AfipWebService();
+    // "https://wsaahomo.afip.gov.ar/ws://wsfe/services/LoginCms"
     const data = {
       'CantReg' 		: 1, // Cantidad de comprobantes a registrar
       'PtoVta' 		: 1, // Punto de venta
@@ -132,15 +140,21 @@ function facturar(){
     };
     
   
-    afip.ElectronicBilling.createVoucher(data).then(response => {
-      console.log("holaaaaaa",response)
-    }).catch("fallo afip______");
+    // afip.ElectronicBilling.createVoucher(data).then(response => {
+    //   console.log("holaaaaaa",response)
+    // }).catch("fallo afip______");
+    
+    // afip.GetServiceTA();
+    const res = afip.ElectronicBilling.createVoucher(data,false);
+
+    res['CAE']; //CAE asignado el comprobante
+    res['CAEFchVto']; 
   
     
     // res['CAE']; //CAE asignado el comprobante
     // res['CAEFchVto']; //Fecha de vencimiento del CAE (yyyy-mm-dd
   
 }
-
+console.log("hola!!",Afip.AfipWebService)
 
 module.exports={initDatos,facturar}
