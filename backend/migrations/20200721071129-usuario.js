@@ -29,7 +29,7 @@ module.exports = {
 		  	allowNull: true
 			},	
       password: {
-        type:Sequelize.STRING(15),
+        type:Sequelize.STRING(),
         required: [false, "La contraseña aun no es obligatoria"],
       },
 		

@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     resultados: DataTypes.STRING,
     // empresa_id: Empresa.id,
     // usuario_id: Usuario.id,
-
+    //empresa_cuit:Empresa.cuit,
    
     cantidadComprobantesARegistrar: DataTypes.STRING,
     puntoVenta: DataTypes.STRING,

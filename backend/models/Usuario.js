@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
 		   // }
 		},
 	    cuit: {
-	     	type: DataTypes.INTEGER(11),
+	     	type: Sequelize.INTEGER(11),
 	     	allowNull:true
 			},
         email: {
@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true
 			},	
         password: {
-            type:Datatypes.STRING(15),
+            type: Sequelize.STRING(),
             required: [false, "La contraseña aun no es obligatoria"],
             },	
 
