@@ -1,10 +1,9 @@
 _...En proceso de desarrollo..._
 
-[![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=17-testeo)](https://travis-ci.org/nataliaMarzec/sac)
-
-[![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
+[![Build Status-17-test](https://travis-ci.org/nataliaMarzec/sac.svg?branch=17-testeo)](https://travis-ci.org/nataliaMarzec/sac) [![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
 
 [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
+[![Contributors][contributors-shield]](https://github.com/nataliaMarzec/sac/graphs/contributors)
 
 
 
