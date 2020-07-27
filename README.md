@@ -4,7 +4,7 @@ _...En proceso de desarrollo..._
 
 [![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
 
-[![Contributors][contributors-shield]](https://github.com/nataliaMarzec/sac/graphs/contributors)
+[![Contributors](contributors-shield]](https://github.com/nataliaMarzec/sac/graphs/contributors)
 
 
 
