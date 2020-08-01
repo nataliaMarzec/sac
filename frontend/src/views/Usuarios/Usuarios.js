@@ -17,13 +17,13 @@ class Usuarios extends React.Component{
     // this.listadoChoferes=this.listadoChoferes.bind(this)
     // this.updateLista=this.updateLista.bind(this)
   
-    actualizarModal=()=>{
-      this.setState({abierto: !this.state.abierto});
+    actualizarModal(){
+      this.setState({abierto:!this.state.abierto});
     }
     
 
     getPeticiones(){
-      fetch(url).then( res => res.json())
+      fetch(url).then(res => res.json())
       .then( usuarios => this.setState({usuarios:usuarios}))
       .catch(error=>(console.log(error)))
     }
@@ -96,7 +96,7 @@ class Usuarios extends React.Component{
            <NuevoUsuario usuario={this.state.selected}
                          usuarios={this.usuarios}
                          usuarioChange={this.usuarioChange} 
-
+                         actualizarModal={this.actualizarModal}
             
                          />
  
@@ -131,7 +131,7 @@ class Usuarios extends React.Component{
             <UsuarioRow usuario={unUsuario} 
                         selector={this.select} 
                         actualizarLista={this.actualizarLista}
-    
+                        
             />
           );
         })

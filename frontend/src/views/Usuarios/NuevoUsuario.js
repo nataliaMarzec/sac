@@ -29,10 +29,9 @@ class NuevoUsuario extends React.Component {
       this.setState({usuarios: props.usuarios});
     }
 
-    onSubmit=event=>{
+    onSubmit=()=>{
       this.insertar();
-      event.preventDefault()
-     //  this.props.cerrarModal()
+    
    }
  
 
@@ -65,8 +64,9 @@ class NuevoUsuario extends React.Component {
     //   lista.push(valorNuevo)
     // }
     
-    insertar(event) {
+    insertar() {
       var valorNuevo={...this.state.usuario}
+      var usuarios={...this.props.usuarios}
         fetch(`http://localhost:8008/usuarios`, {
           usuar:console.log(valorNuevo),
           method: "POST",
@@ -75,11 +75,13 @@ class NuevoUsuario extends React.Component {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(this.state.usuario),
-        })
+        }) 
         .then(res => res.json())
         .then(res => this.props.actualizarModal())
-        .catch(err => console.log("Error:",err));
-       event.preventDefault();   
+        .then(res => this.setState(usuarios))
+        .catch(err => console.log("Error:",err))
+            
+      //  event.preventDefault();   
     };
 
 
