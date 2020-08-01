@@ -7,6 +7,7 @@ const FacturaModel=require('./factura');
 const VoucherModel = require('./voucher');
 const UsuarioModel= require('./Usuario');
 
+
 const DBURL='mysql://adm:Sistema_ac20@localhost:3306/sac'
 let sequelize=new Sequelize(DBURL,{
    operatorsAliases:'false',
@@ -58,7 +59,8 @@ sequelize.sync()
     console.log("SOY CLIENTE SYNC:",Cliente=== sequelize.models.Cliente); 
     console.log("SOY EMPRESA SYNC:",Empresa === sequelize.models.Empresa); 
     console.log("SOY VOUCHER SYNC:",Voucher===sequelize.models.Voucher)
-
+    console.log("SOY USUARIO SYNC:",Usuario===sequelize.models.Usuario)
+    
   })
 
 

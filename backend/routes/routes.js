@@ -5,7 +5,7 @@ const controllerEmpresa = require('../controllers/EmpresaController');
 const controllerCliente = require('../controllers/ClienteController');
 // const controllerVoucher = require('../controllers/VoucherController')
 // const {facturar}= require('../initDatos')
-// const {facturarElec}=require('../controllers/facturar')
+const controllerUsuario=require('../controllers/UsuarioController')
 console.log("--------SOY ROUTER---------"); 
 
 
@@ -34,7 +34,12 @@ router.put('/clientes',(controllerCliente.updateClienteEnLista))
 // router.post('/vouchers',(req,res)=>{voucher;res.send("oki-post")})
 // router.get('/vouchers',(req,res)=>{voucher;res.send("oki-get")})
 
-
+router.post('/usuarios',(controllerUsuario.createUsuario))
+router.get('/usuarios',(controllerUsuario.getUsuarios))
+// router.get('/usuarios/:id',(controllerUsuario.getUsuarioId))
+router.delete('/usuarios/:id',(controllerUsuario.deleteUsuarioId))
+router.put('/usuarios/:id',controllerUsuario.updateUsuario)
+// router.put('/usuarios',(controllerUsuario.updateUsuarioEnLista))
 
 
 

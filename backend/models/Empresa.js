@@ -60,6 +60,8 @@ module.exports = function(sequelize, DataTypes) {
   );
   	Empresa.associate = models => {
 		models.Empresa.hasMany(models.Cliente);
+		models.Empresa.hasMany(models.Usuario);
+		models.Empresa.hasMany(models.Direccion)
 	  },
      
      console.log("SOY EMPRESA:",Empresa === sequelize.models.Empresa);   

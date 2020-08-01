@@ -24,7 +24,7 @@ class PopoverItem extends Component {
           {this.props.item.text}
         </Button>
         <Popover placement={this.props.item.placement} isOpen={this.state.popoverOpen} target={'Popover-' + this.props.id} toggle={this.toggle} trigger="legacy" delay={0}>
-          <PopoverHeader>Popover Title</PopoverHeader>
+          <PopoverHeader>Aca estoy en Popovers.js</PopoverHeader>
           <PopoverBody>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</PopoverBody>
         </Popover>
       </span>

@@ -28,7 +28,7 @@
 
   - Ir al servicio de homologación y completar formulario(para poder acceder cumplir los requisitos previos afip)
 
-## El servicio que se usa es DUMMY:
+## El servicio que se usa es DUMMY(Monitoreo)/wsfe(facturaElectrónica):
 - id:dummy descripción: monitoreo
 (dummy)[https://wsaahomo.afip.gov.ar/test/]
 

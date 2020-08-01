@@ -17,7 +17,7 @@ class EmpresaForm extends React.Component {
 
     }
     componentWillReceiveProps(props) {
-      this.setState({factura: props.empresa})
+      this.setState({empresa: props.empresa})
     }
 
     changeHandler(event) {
