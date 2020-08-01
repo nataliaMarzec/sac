@@ -25,7 +25,7 @@ componentWillReceiveProps(props) {
 
 
  componentWillMount = () => {
-      this.props.listadoDeClientes();
+      // this.props.listadoDeClientes();
 };
 
     changeHandler(event) {
@@ -84,8 +84,8 @@ componentWillReceiveProps(props) {
         <Form onSubmit={this.onSubmit}>  
           <FormGroup>
           <Label for="exampleName">Nombre</Label>
-          <Input type="text" name="nombre" id="exampleNombre" value={this.state.cliente.nombre} 
-           onChange={()=>this.changeHandler} placeholder="Leonor Marzec" />
+          {/* <Input type="text" name="nombre" id="exampleNombre" value={this.state.cliente.nombre}  */}
+           {/* onChange={()=>this.changeHandler} placeholder="Leonor Marzec" /> */}
         </FormGroup>
         <FormGroup>
           <Label for="exampleCuit">Cuit</Label>

@@ -34,7 +34,7 @@ class Navs extends Component {
             </div>
           </CardHeader>
           <CardBody>
-            <p>List Based</p>
+            <p>Aca estoy en Nav.js</p>
             <Nav>
               <NavItem>
                 <NavLink href="#">Link</NavLink>

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink ,BrowserRouter as Route} from 'react-router-dom';
 import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavbarBrand } from 'reactstrap';
 import PropTypes from 'prop-types';
-
+// const Full = React.lazy(()=>import('./views/Contactos/containers/Full/Full.js'));
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
 //import logo from '../../assets/img/brand/logo.svg'
 //import sygnet from '../../assets/img/brand/sygnet.svg'
@@ -30,14 +30,6 @@ class DefaultHeader extends Component {
 
         <Nav className="d-md-down-none" navbar>
 
-          <NavItem className="px-3">
-            <NavLink to="/" className="nav-link" >Home</NavLink>
-          </NavItem>
-
-          <NavItem className="px-3">
-            <Link to="/usuarios" className="nav-link">Usuarios</Link>
-          </NavItem>
-
       
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Empresa</DropdownToggle>
@@ -50,6 +42,18 @@ class DefaultHeader extends Component {
               </DropdownItem>
               <DropdownItem divider />
               <DropdownItem>Detalles</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Usuarios</DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>
+                <Link to="/usuarios" key="#listadoUsuario" className="nav-link">Usuarios-Listado</Link>
+              </DropdownItem>
+              {/* <DropdownItem>
+                <Link to="/usuario" className="nav-link">Registrar Usuario</Link>
+              </DropdownItem> */}
             </DropdownMenu>
           </UncontrolledDropdown>
       
@@ -83,6 +87,20 @@ class DefaultHeader extends Component {
               <DropdownItem>Detalles</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
+
+          {/* <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>Contactos</DropdownToggle>
+            <DropdownMenu left>
+              <DropdownItem>
+                <Link to="/contacts" key="#listadoContacts" className="nav-link">Listado</Link>
+              </DropdownItem>
+              <DropdownItem>
+                <Link to="/contactPerson" className="nav-link">contactoPersonal</Link>
+              </DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem>Detalles</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown> */}
 
 
         <NavItem className="px-3">

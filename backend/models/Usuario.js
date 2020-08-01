@@ -1,6 +1,6 @@
 'use strict'
 const { Sequelize ,Op,Model,DataTypes} = require('sequelize');
-const {Empresa,Domicilio,Voucher} = require('./sequelizeConnection.js');
+const {Empresa,Domicilio} = require('./sequelizeConnection.js');
 
 
 module.exports = function(sequelize, DataTypes) {
@@ -56,7 +56,7 @@ module.exports = function(sequelize, DataTypes) {
 				  }
 				});
 			// models.Cliente.hasMany(models.Domicilio);
-			models.Usuario.hasMany(models.Voucher);
+			// models.Usuario.hasMany(models.Voucher);
 
 		},
      

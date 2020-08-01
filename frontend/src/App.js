@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import { renderRoutes } from 'react-router-config';
 import './App.scss';
+import Usuarios from './views/Usuarios/Usuarios';
 // import Clientes from './views/Clientes/Clientes'
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
@@ -9,6 +10,8 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
 const ClienteForm = React.lazy(()=>import('./views/Clientes/ClienteForm'))
 const Clientes = React.lazy(() => import('./views/Clientes/Clientes'));
+
+
 // Pages
 const Login = React.lazy(() => import('./views/Pages/Login'));
 const Register = React.lazy(() => import('./views/Pages/Register'));
@@ -28,14 +31,23 @@ class App extends Component {
               <Route exact path="/404" name="Page 404" render={props => <Page404 {...props}/>} />
               <Route exact path="/500" name="Page 500" render={props => <Page500 {...props}/>} />
               <Route path="/" name="Home" render={props => <DefaultLayout {...props}/>} />
+              {/* <Route path="/usuarios"  Component={Usuarios}></Route> */}
               {/* <Route path="/clientes" name="Clientes" component={Clientes} render={props => <ClienteForm {...props}/>} /> */}
               {/* <Route path="/clienteForm" name="ClienteForm" component={ClienteForm} render={props => <Clientes {...props}/>} /> */}
             </Switch>
+
+
           </React.Suspense>
        </Router>
      </HashRouter>
     );
   }
 }
+
+
+
+// function UsuariosComponent() {
+//   return (<Usuarios entity="Usuario" name="Usuarios"/>)
+// }
 
 export default App;

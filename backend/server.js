@@ -20,21 +20,21 @@ server.use(bodyParser.json());
 // server.use(openssl);
 server.use(require ('./routes/routes.js'));
 // server.use(initDatos)
-server.set('port',process.env.PORT || 3004);
+server.set('port',process.env.PORT ||8008);
 server.get("/", (req, res) => res.send('APP UP'));
 
 
 console.log("AQUI SERVER:",path.join(__dirname,`server`));
 // console.log("CIFRADOS------:",server.use(tls.getCiphers));
 
-// sequelize.sync({force:true})
-sequelize.sync()
+sequelize.sync({force:true})
+// sequelize.sync()
 .then(() => {console.log(`--modelos sincronizados!!!--`)})
 .then(()=>{initDatos()})
 .then(() => {
   server.listen(server.get('port'),()=> {
   debug(`Express listening on port ${server.get('port')}`);
-  console.log("--CONECCIONES--",server.connections)
+  // console.log("--CONECCIONES--",server.connections)
   });
 });
 

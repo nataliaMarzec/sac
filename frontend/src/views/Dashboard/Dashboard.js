@@ -22,7 +22,7 @@ import {
 } from 'reactstrap';
 import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import { getStyle, hexToRgba } from '@coreui/coreui/dist/js/coreui-utilities'
-
+// import Usuario from '../../views/Usuarios/Usuario';
 const Widget03 = lazy(() => import('../../views/Widgets/Widget03'));
 
 const brandPrimary = getStyle('--primary')
@@ -478,8 +478,9 @@ class Dashboard extends Component {
   }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
-
+////////Usuarios::::::::::
   render() {
+
 
     return (
       <div className="animated fadeIn">

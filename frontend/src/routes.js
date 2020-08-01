@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import Contacts from './views/Contactos/Components/Contacts';
+import ContactPerson from './views/Contactos/Components/ContactPerson'
+import AddContact from './views/Contactos/Components/AddContact';
+import EditContact from './views/Contactos/Components/EditContact';
+import Full from './views/Contactos/containers/Full/Full';
+
 // import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
@@ -44,7 +50,7 @@ const ClienteForm2 = React.lazy(() => import('./views/Clientes/ClienteForm2'));
 const ClienteRow = React.lazy(() => import('./views/Clientes/ClienteRow'));
 
 const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
-const Usuario = React.lazy(() => import('./views/Usuarios/Usuario'));
+const NuevoUsuario = React.lazy(() => import('./views/Usuarios/NuevoUsuario'));
 {/*const UsuarioForms = React.lazy(() => import('./views/Usuarios/Formulario/ClienteForms'));*/}
 
 const Facturas = React.lazy(()=> import('./views/Facturas/Facturas'));
@@ -54,6 +60,8 @@ const FacturaForm = React.lazy(() => import('./views/Facturas/FacturaForm'));
 const Empresas = React.lazy(()=> import('./views/Empresa/Empresas'));
 const EmpresaForm = React.lazy(() => import('./views/Empresa/EmpresaForm'));
 const EmpresaRow = React.lazy(() => import('./views/Empresa/EmpresaRow'));
+const Empresa= React.lazy(()=>import('./views/Empresa/Empresa'))
+
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -106,9 +114,9 @@ const routes = [
  { path: '/clienteForm2', exact: true, name:'ClienteForm2', component: ClienteForm2},
  { path:'./clienteRow', exact: true, name:'ClienteRow', component: ClienteRow},
 
- { path: '/usuarios', exact: true, key:'#listadoUsuario', name: 'Usuarios', component: Usuarios },
- { path: '/usuarios/:id', exact: true, name: 'Usuario Detalles', component: Usuario },
- {/* path: '/usuarioForms', exact: true, name:'UsuarioForms', component: UsuarioForms*/},
+ { path: '/usuarios', exact: true, key:'#usuarios', name:'Usuarios', component: Usuarios },
+//  { path: '/usuarios/:id', exact: false, name: 'Usuario Detalles', component:Usuario},
+//  {path: '/usuarios', exact: false, name:'NuevoUsuario', component: NuevoUsuario},
 
  { path: '/facturas', exact: true,key:'#listadoFacturas', name:'Facturas', component:Facturas },
  { path: '/facturaForm', exact: true, name:'FacturaForm', component: FacturaForm},
@@ -116,8 +124,18 @@ const routes = [
 
 
  { path: '/empresas', exact: true,key:'#listadoEmpresas', name:'Empresas', component:Empresas },
- { path: '/empresaForm', exact: true, name:'EmpresaForm', component: EmpresaForm},
- { path:'./empresaRow', exact: true, name:'EmpresaRow', component: EmpresaRow},
+ { path: '/empresaForm', exact:false, name:'EmpresaForm', component: EmpresaForm},
+ { path:'./empresaRow', exact: false, name:'EmpresaRow', component: EmpresaRow},
+ { path:'./empresa',exact:true,name:'Empresa',component:Empresa},
+
+ {path: '/contacts',exact:true,key:'#listadoContactos',name:'Contacts',component:Contacts},
+ { path: '/contactPerson', exact:false, name:'ContactPerson', component:ContactPerson},
+//  { path:'./addContact', exact: false, name:'AddContact', component:AddContact},
+
+
+//  { path:'./breadcrumb', exact: false, name:'Breadcrumb', component:Breadcrumb},
+//  {path:'./sidebars',exact:false,name:'Sidebars',component:Sidebar},
+ {path:'./',exact:false,name:'Full',component:Full}
 ];
 
 

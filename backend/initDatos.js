@@ -2,12 +2,13 @@ var Sequelize = require("sequelize");
 var connections= require("./.sequelizerc");
 const { server } = require("./server");
 var faker = require('faker');
-const {Empresa,Cliente,Voucher} = require("./models/sequelizeConnection");
+const {Empresa,Cliente,Voucher,Usuario} = require("./models/sequelizeConnection");
 // const { facturar, data } = require("./controllers/VoucherController");
 const Afip = require('@afipsdk/afip.js');
 const ElectronicBilling = require("@afipsdk/afip.js/src/Class/ElectronicBilling");
 const forge = require('node-forge');
 const AfipWebService = require("@afipsdk/afip.js/src/Class/AfipWebService");
+
 
 
 function initDatos(){
@@ -28,6 +29,15 @@ function initDatos(){
     return Cliente.findAll()
   }).then(function(cli) {
     console.log(cli);
+  });
+
+  Usuario.bulkCreate([
+    { nombre:'adamkzick', cuit:'22790268163',email:'adamk@gmail.com'},
+   
+  ]).then(function() {
+    return Usuario.findAll();
+  }).then(function(usuarios) {
+    console.log(usuarios);
   });
 
   

@@ -4,7 +4,7 @@
   "description": "Trabajo Final",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test": "mocha",
     "start": "node server.js"
   },
   "repository": {
@@ -30,7 +30,6 @@
     "express": "^4.17.1",
     "express-promise-router": "^3.0.3",
     "faker": "^4.1.0",
-    "mocha": "^8.0.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
@@ -42,7 +41,10 @@
     "sequelize-test-helpers": "^1.2.3",
     "sequelize-to-json": "^0.10.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }
