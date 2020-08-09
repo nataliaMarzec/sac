@@ -58,7 +58,7 @@ class DefaultHeader extends Component {
           </UncontrolledDropdown>
       
 
-         <NavItem>
+         {/* <NavItem> */}
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Clientes</DropdownToggle>
             <DropdownMenu right>
@@ -72,11 +72,11 @@ class DefaultHeader extends Component {
               <DropdownItem>Detalles</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
-          </NavItem>
+          {/* </NavItem> */}
            
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Vouchers</DropdownToggle>
-            <DropdownMenu left>
+            <DropdownMenu >
               <DropdownItem>
                 <Link to="/facturas" key="#listado" className="nav-link">Listado</Link>
               </DropdownItem>

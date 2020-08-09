@@ -8,7 +8,6 @@ const loading = () => <div className="animated fadeIn pt-3 text-center">Loading.
 
 // Containers
 const DefaultLayout = React.lazy(() => import('./containers/DefaultLayout'));
-const ClienteForm = React.lazy(()=>import('./views/Clientes/ClienteForm'))
 const Clientes = React.lazy(() => import('./views/Clientes/Clientes'));
 
 

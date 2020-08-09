@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Modal, ModalHeader, ModalBody, ModalFooter,FormGroup,Label,Table,Row,Col,Card,CardHeader,CardBody} from 'reactstrap';
 import UsuarioRow from './UsuarioRow'
 import NuevoUsuario from './NuevoUsuario';
+import usuariosdata from './usuariosdata';
 
 const url=`http://localhost:8008/usuarios`;
 class Usuarios extends React.Component{
@@ -11,11 +12,9 @@ class Usuarios extends React.Component{
       this.select = this.select.bind(this);
       this.usuarioChange = this.usuarioChange.bind(this);
       this.actualizarLista=this.actualizarLista.bind(this);
-      this.actualizarModal=this.actualizarModal.bind(this)
+      this.actualizarModal=this.actualizarModal.bind(this);
+      this.listadoUsuarios=this.listadoUsuarios.bind(this)
     }
-
-    // this.listadoChoferes=this.listadoChoferes.bind(this)
-    // this.updateLista=this.updateLista.bind(this)
   
     actualizarModal(){
       this.setState({abierto:!this.state.abierto});
@@ -24,17 +23,15 @@ class Usuarios extends React.Component{
 
     getPeticiones(){
       fetch(url).then(res => res.json())
-      .then( usuarios => this.setState({usuarios:usuarios}))
-      .catch(error=>(console.log(error)))
+      .then( uss => this.setState({usuarios:uss}))
+      // .catch(error=>(console.log(error)))
     }
     
-    componentDidMount=()=>{
+    componentWillMount(){
       this.getPeticiones();
     }
     
 
-
-   
     render(){
   
       const modalStyles={
@@ -63,7 +60,7 @@ class Usuarios extends React.Component{
                 <Table responsive bordered size="sm">
                   <thead>
                   <tr>
-                    <th><i class="icon-people"></i></th>
+                    <th><i className="icon-people"></i></th>
                     <th>id</th>
                     <th>nombre</th>
                     <th>cuit</th>
@@ -94,7 +91,7 @@ class Usuarios extends React.Component{
           <ModalBody>
            {/* aca llamo al formulario dentro del modal */}
            <NuevoUsuario usuario={this.state.selected}
-                         usuarios={this.usuarios}
+                         usuarios={this.listadoUsuarios}
                          usuarioChange={this.usuarioChange} 
                          actualizarModal={this.actualizarModal}
             
@@ -128,7 +125,7 @@ class Usuarios extends React.Component{
     renderRows() {
         return this.state.usuarios.map((unUsuario, index) => {
           return (
-            <UsuarioRow usuario={unUsuario} 
+            <UsuarioRow key={index} usuario={unUsuario} 
                         selector={this.select} 
                         actualizarLista={this.actualizarLista}
                         
@@ -136,7 +133,9 @@ class Usuarios extends React.Component{
           );
         })
       }
-
+    listadoUsuarios(){
+      this.getPeticiones()
+    }
 
     select(unUsuario) {
       this.setState({selected:unUsuario})

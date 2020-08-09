@@ -8,10 +8,6 @@ class NuevoUsuario extends React.Component {
   constructor(props) {
       super(props);
       this.state = {usuario:props.usuario,modal:props.modal};
-      // this.state={
-      //            usuario:{
-      //              id:"",nombre:"",cuit:"",email:""}}
-      // this.handleSubmit = this.handleSubmit.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.onSubmit=this.onSubmit.bind(this);
       // this.estadoInicial=this.estadoInicial.bind(this)
@@ -29,19 +25,20 @@ class NuevoUsuario extends React.Component {
       this.setState({usuarios: props.usuarios});
     }
 
-    onSubmit=()=>{
-      this.insertar();
+    onSubmit(e){
+      this.insertar(e);
+      e.preventDefault();
     
    }
  
 
-    handleChange=e=>{
-      e.persist();
+    handleChange(e){
+      // e.persist();
       this.setState({
         usuario:{...this.state.usuario,
         [e.target.name]:e.target.value}
       })
-      console.log(this.state.usuario)
+      // console.log(this.state.usuario)
     }
 
     // handleSubmit(event) {
@@ -64,24 +61,25 @@ class NuevoUsuario extends React.Component {
     //   lista.push(valorNuevo)
     // }
     
-    insertar() {
+    insertar(e) {
       var valorNuevo={...this.state.usuario}
       var usuarios={...this.props.usuarios}
+      console.log(valorNuevo)
         fetch(`http://localhost:8008/usuarios`, {
-          usuar:console.log(valorNuevo),
           method: "POST",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(this.state.usuario),
+          body: JSON.stringify(valorNuevo),
         }) 
         .then(res => res.json())
+        .then(res=> this.props.usuarios)
         .then(res => this.props.actualizarModal())
-        .then(res => this.setState(usuarios))
-        .catch(err => console.log("Error:",err))
-            
-      //  event.preventDefault();   
+        // .then(res => this.setState(usuarios))
+        // .catch(err => console.log("Error:",err))
+        
+  
     };
 
 
@@ -98,7 +96,7 @@ class NuevoUsuario extends React.Component {
   //         .then(res => this.estadoInicial());
   //         event.preventDefault();
   // }
-  
+ 
     // editarcliente = () => {
     //   fetch("http://localhost:8888/clientes", {
     //     method: "PUT",
@@ -124,18 +122,18 @@ render() {
   return (
     <Form onSubmit={this.onSubmit} >  
       <FormGroup>
-      <Label for="exampleName">Nombre</Label>
-      <Input type="text" name="nombre" id="nombre" value={this.state.usuario.nombre} 
+      <Label for="nombre">Nombre</Label>
+      <Input type="text" name="nombre" id="nombre" value={this.state.usuario.nombre ||''} 
        onChange={this.handleChange} placeholder="ej.Lucía Adamkzick" />
     </FormGroup>
     <FormGroup>
-      <Label for="examplecuit">cuit</Label>
-      <Input type="text" name="cuit" id="cuit" value={this.state.usuario.cuit}
+      <Label for="cuit">cuit</Label>
+      <Input type="text" name="cuit" id="cuit" value={this.state.usuario.cuit ||''}
       onChange={this.handleChange} placeholder="30222888" />
     </FormGroup>
     <FormGroup >
       <Label for="email"> email</Label>
-      <input type="text" name="email" id="email" value={this.state.usuario.email}
+      <input type="text" name="email" id="email" value={this.state.usuario.email ||''}
       onChange={this.handleChange}></input>
     </FormGroup>
     {/* <Button type="<submit></submit>" color="success" onClick={ this.handleSubmit.bind(this) }><i className="fa fa-dot-circle-o"></i> Submit</Button> */}

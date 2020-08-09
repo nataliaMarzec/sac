@@ -30,7 +30,7 @@ console.log("AQUI SERVER:",path.join(__dirname,`server`));
 sequelize.sync({force:true})
 // sequelize.sync()
 .then(() => {console.log(`--modelos sincronizados!!!--`)})
-.then(()=>{initDatos()})
+// .then(()=>{initDatos()})
 .then(() => {
   server.listen(server.get('port'),()=> {
   debug(`Express listening on port ${server.get('port')}`);

@@ -31,8 +31,8 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: true
 			},	
         password: {
-            type: Sequelize.STRING(),
-            required: [false, "La contraseña aun no es obligatoria"],
+            type: Sequelize.STRING()
+            // required: [false, "La contraseña aun no es obligatoria"],
             },	
 
 		
