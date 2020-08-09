@@ -12,11 +12,7 @@ _...En proceso de desarrollo..._
 
 [![License][license-shield]](https://github.com/nataliaMarzec/master/LICENSE)
 
-[![Contributors][contributors-shield]](https://github.com/nataliaMarzec/sac/graphs/contributors)
-
-
-
- [![Integración Sequelize-md]](md/sequelize.md)
+[![Integración Sequelize-md]](md/sequelize.md)
 
 # SAC Sistema Administrativo Contable
 
