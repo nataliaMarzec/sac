@@ -15,6 +15,41 @@ createCliente :(req,res) => {
       res.status(200).json(cliente)
 },
 
+async create(req, res) {
+  const cliente = req.body;
+
+  const { id,nombre,cuit,email } = await Cliente.create(cliente);
+
+  return res.json({
+    id,
+    nombre,
+    cuit,
+    email,
+  });
+},
+
+async update(req, res) {
+  const cliente = await Cliente.findByPk(req.params.id);
+
+  const { id,nombre,cuit,email } = await Cliente.update(req.body);
+
+  return res.json({
+    id,
+    nombre,
+    cuit,
+    email,
+  });
+},
+
+async delete(req, res) {
+  const cliente = await Cliente.findByPk(req.params.id);
+
+  await cliente.destroy();
+
+  return res.json({ delete: 'Cliente eliminado' });
+},
+
+
 updateCliente :(req,res) => {
   const cliente= Cliente.update({
     id:req.body.id,
@@ -25,40 +60,15 @@ updateCliente :(req,res) => {
    res.status(200).json(cliente)
 },
 
-updateClienteEnLista :(req, res) =>{
-  if (req.body.id) {
-    const clien = Cliente.build()
-
-    clien.updateAttributes({
-      id:req.body.id,
-      nombre:req.body.nombre,
-      cuit:req.body.cuit,
-      email:req.body.email
-    })
-      .on('success', id => {
-        res.json({
-          success: true
-        }, 200)
-      })
-      .on('failure', error => {
-        throw new Error(error)
-      })
-  }
-  else
-    throw new Error('Datos no proporcionados')
-},
-
-
-
 
 getClientes :async(req, res,next) => {
-    const clientes =await Cliente.findAll()
-    if(![req.body.values]){
-    res.status(400).json({ err:'no obtiene lista de clientes' })
-    }else{
-      return res.status(200).json( clientes )
-    }
-  },
+  const clientes =await Cliente.findAll()
+  if(![req.body.values]){
+  res.status(400).json({ err:'no obtiene lista de clientes' })
+  }else{
+    return res.status(200).json( clientes)
+  }
+},
 
 getClienteId: async(req,res)=>{
     var cliente =await Cliente.findByPk(req.params.id)
@@ -69,18 +79,6 @@ getClienteId: async(req,res)=>{
     }
 },
 
-deleteClienteId: async(req,res)=>{
-  var cliente=await Cliente.destroy({
-    where:{
-      id:req.params.id
-    }
-  })
-  if(![req.body.values]){
-    res.status(400).json({err:'No hay cliente con ID'})
-  }else{
-   res.status(200).json('Eliminada cliente con ID ')
-  }
-},
 
 
 

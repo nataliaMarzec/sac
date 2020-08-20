@@ -4,13 +4,12 @@ import ContactPerson from './views/Contactos/Components/ContactPerson'
 import AddContact from './views/Contactos/Components/AddContact';
 import EditContact from './views/Contactos/Components/EditContact';
 import Full from './views/Contactos/containers/Full/Full';
-import CargarCliente from './views/Clientes/CargarCliente';
 import Usuarios from './views/Usuarios/Usuarios';
 import NuevoUsuario from './views/Usuarios/NuevoUsuario';
 import ModificarUsuario from './views/Usuarios/ModificarUsuario';
 import UsuarioRow from './views/Usuarios/UsuarioRow';
 import Choferes from './views/Transporte/Choferes'
-
+import Clientes from './views/Clientes/Clientes'
 // import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
@@ -49,10 +48,6 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 
 
 //agregados nuevos:
-const Clientes =React.lazy(()=> import('./views/Clientes/Clientes'));
-// const Cliente = React.lazy(() => import('./views/Clientes/Cliente'));
-// const ClienteForm = React.lazy(() => import('./views/Clientes/ClienteForm'));
-const ClienteRow = React.lazy(() => import('./views/Clientes/ClienteRow'));
 
 // const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
 // const NuevoUsuario = React.lazy(() => import('./views/Usuarios/NuevoUsuario'));
@@ -116,9 +111,6 @@ const routes = [
 //agregados nuevos:
  { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
 //  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
- { path: '/clienteForm', exact: true, name:'CargarCliente', component: CargarCliente },
-//  { path: '/clienteForm2', exact: true, name:'ClienteForm2', component: ClienteForm2},
- { path:'./clienteRow', exact: true, name:'ClienteRow', component: ClienteRow},
 
  { path: '/usuarios', exact: true, key:'#usuarios', name:'Usuarios', component: Usuarios },
 //  { path: '/usuarios/:id', exact: false, name: 'Usuario Detalles', component:Usuario},
