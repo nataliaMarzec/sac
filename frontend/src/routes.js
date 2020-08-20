@@ -5,6 +5,11 @@ import AddContact from './views/Contactos/Components/AddContact';
 import EditContact from './views/Contactos/Components/EditContact';
 import Full from './views/Contactos/containers/Full/Full';
 import CargarCliente from './views/Clientes/CargarCliente';
+import Usuarios from './views/Usuarios/Usuarios';
+import NuevoUsuario from './views/Usuarios/NuevoUsuario';
+import ModificarUsuario from './views/Usuarios/ModificarUsuario';
+import UsuarioRow from './views/Usuarios/UsuarioRow';
+import Choferes from './views/Transporte/Choferes'
 
 // import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -49,9 +54,10 @@ const Clientes =React.lazy(()=> import('./views/Clientes/Clientes'));
 // const ClienteForm = React.lazy(() => import('./views/Clientes/ClienteForm'));
 const ClienteRow = React.lazy(() => import('./views/Clientes/ClienteRow'));
 
-const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
-const NuevoUsuario = React.lazy(() => import('./views/Usuarios/NuevoUsuario'));
-{/*const UsuarioForms = React.lazy(() => import('./views/Usuarios/Formulario/ClienteForms'));*/}
+// const Usuarios = React.lazy(() => import('./views/Usuarios/Usuarios'));
+// const NuevoUsuario = React.lazy(() => import('./views/Usuarios/NuevoUsuario'));
+// const ModificarUsuario = React.lazy(() => import('./views/Usuarios/ModificarUsuario'));
+// const UsuarioRow = React.lazy(()=> import('./views/Usuarios/UsuarioRow'))
 
 const Facturas = React.lazy(()=> import('./views/Facturas/Facturas'));
 const FacturaRow = React.lazy(() => import('./views/Facturas/FacturaRow'));
@@ -68,9 +74,9 @@ const Empresa= React.lazy(()=>import('./views/Empresa/Empresa'))
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/theme', exact: true, name: 'Theme', component: Colors },
-  { path: '/theme/colors', name: 'Colors', component: Colors },
-  { path: '/theme/typography', name: 'Typography', component: Typography },
+  // { path: '/theme', exact: true, name: 'Theme', component: Colors },
+  // { path: '/theme/colors', name: 'Colors', component: Colors },
+  // { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },
   { path: '/base/forms', name: 'Forms', component: Forms },
@@ -132,7 +138,7 @@ const routes = [
  { path: '/contactPerson', exact:false, name:'ContactPerson', component:ContactPerson},
 //  { path:'./addContact', exact: false, name:'AddContact', component:AddContact},
 
-
+{ path: '/choferes', exact: true, key:'#choferes', name: 'Choferes', component: Choferes },
 //  { path:'./breadcrumb', exact: false, name:'Breadcrumb', component:Breadcrumb},
 //  {path:'./sidebars',exact:false,name:'Sidebars',component:Sidebar},
  {path:'./',exact:false,name:'Full',component:Full}

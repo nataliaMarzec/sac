@@ -6,6 +6,7 @@ const controllerCliente = require('../controllers/ClienteController');
 // const controllerVoucher = require('../controllers/VoucherController')
 // const {facturar}= require('../initDatos')
 const controllerUsuario=require('../controllers/UsuarioController')
+const controllerChofer=require('../controllers/ChoferController')
 console.log("--------SOY ROUTER---------"); 
 
 
@@ -19,11 +20,18 @@ router.delete('/empresas/:id',(controllerEmpresa.deleteEmpresaId))
 
 
 router.post('/clientes',(controllerCliente.createCliente))
-router.get('/clientes',(controllerCliente.getClientes))
+router.get('/clientesLista',(controllerCliente.getClientes))
 router.get('/clientes/:id',(controllerCliente.getClienteId))
 router.delete('/clientes/:id',(controllerCliente.deleteClienteId))
 router.put('/clientes/:id',controllerCliente.updateCliente)
 router.put('/clientes',(controllerCliente.updateClienteEnLista))
+
+router.post('/choferes',(controllerChofer.create))
+router.delete('/choferes/:id',(controllerChofer.delete))
+router.put('/choferes/:id',controllerChofer.update)
+router.get('/choferes',(controllerChofer.getChoferes))
+
+
 
 // router.post('/voucher',(req,res)=> res.send(controllerVoucher.facturar))
 // router.post('/facturas',(req,res)=>{facturar();res.send("ok")})
