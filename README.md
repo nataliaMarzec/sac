@@ -2,7 +2,7 @@ _...En proceso de desarrollo..._
 
 ***
 
-[![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
+// [![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
 
 [![Closed issues][issues-shield]](https://github.com/nataliaMarzec/sac/issues)
 
