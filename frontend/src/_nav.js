@@ -166,7 +166,22 @@ export default {
             variant: 'info'
           }
         },
-      
+        {
+          name: 'Clientes',
+          url: '/clientes',
+          icon: 'icon-list',
+          badge: {
+            variant: 'info'
+          }
+        },
+        {
+          name: 'Contacto',
+          url: '/contactos',
+          icon: 'icon-list',
+          badge: {
+            variant: 'info'
+          }
+        },
     
 
     // ///

@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
-import Contacts from './views/Contactos/Components/Contacts';
-import ContactPerson from './views/Contactos/Components/ContactPerson'
-import AddContact from './views/Contactos/Components/AddContact';
-import EditContact from './views/Contactos/Components/EditContact';
-import Full from './views/Contactos/containers/Full/Full';
 import Usuarios from './views/Usuarios/Usuarios';
-import NuevoUsuario from './views/Usuarios/NuevoUsuario';
-import ModificarUsuario from './views/Usuarios/ModificarUsuario';
-import UsuarioRow from './views/Usuarios/UsuarioRow';
 import Choferes from './views/Transporte/Choferes'
 import Clientes from './views/Clientes/Clientes'
-// import { HashRouter,BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 const Breadcrumbs = React.lazy(() => import('./views/Base/Breadcrumbs'));
 const Cards = React.lazy(() => import('./views/Base/Cards'));
@@ -109,31 +101,25 @@ const routes = [
   
   
 //agregados nuevos:
- { path: '/clientes', exact: true, key:'#listado', name: 'Clientes', component: Clientes },
-//  { path: '/clientes/:id', exact: true, name: 'Cliente Detalles', component: Cliente },
+ { path: '/clientes', exact: true, key:'#clientes', name: 'Clientes', component: Clientes },
 
  { path: '/usuarios', exact: true, key:'#usuarios', name:'Usuarios', component: Usuarios },
 //  { path: '/usuarios/:id', exact: false, name: 'Usuario Detalles', component:Usuario},
 //  {path: '/usuarios', exact: false, name:'NuevoUsuario', component: NuevoUsuario},
 
- { path: '/facturas', exact: true,key:'#listadoFacturas', name:'Facturas', component:Facturas },
+ { path: '/facturas', exact: true,key:'#facturas', name:'Facturas', component:Facturas },
  { path: '/facturaForm', exact: true, name:'FacturaForm', component: FacturaForm},
  { path:'./facturaRow', exact: true, name:'FacturaRow', component: FacturaRow},
 
 
- { path: '/empresas', exact: true,key:'#listadoEmpresas', name:'Empresas', component:Empresas },
+ { path: '/empresas', exact: true,key:'#empresas', name:'Empresas', component:Empresas },
  { path: '/empresaForm', exact:false, name:'EmpresaForm', component: EmpresaForm},
  { path:'./empresaRow', exact: false, name:'EmpresaRow', component: EmpresaRow},
  { path:'./empresa',exact:true,name:'Empresa',component:Empresa},
 
- {path: '/contacts',exact:true,key:'#listadoContactos',name:'Contacts',component:Contacts},
- { path: '/contactPerson', exact:false, name:'ContactPerson', component:ContactPerson},
-//  { path:'./addContact', exact: false, name:'AddContact', component:AddContact},
-
 { path: '/choferes', exact: true, key:'#choferes', name: 'Choferes', component: Choferes },
-//  { path:'./breadcrumb', exact: false, name:'Breadcrumb', component:Breadcrumb},
-//  {path:'./sidebars',exact:false,name:'Sidebars',component:Sidebar},
- {path:'./',exact:false,name:'Full',component:Full}
+
+
 ];
 
 
