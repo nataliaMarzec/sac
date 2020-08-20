@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, NavLink ,BrowserRouter as Route} from 'react-router-dom';
-import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavbarBrand } from 'reactstrap';
+import { Badge, UncontrolledDropdown, DropdownItem, DropdownMenu, DropdownToggle,
+   Nav, NavItem, NavbarBrand } from 'reactstrap';
 import PropTypes from 'prop-types';
 // const Full = React.lazy(()=>import('./views/Contactos/containers/Full/Full.js'));
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
@@ -45,21 +46,8 @@ class DefaultHeader extends Component {
             </DropdownMenu>
           </UncontrolledDropdown>
 
-          <UncontrolledDropdown nav inNavbar>
-            <DropdownToggle nav caret>Usuarios</DropdownToggle>
-            <DropdownMenu right>
-              <DropdownItem>
-                <Link to="/usuarios" key="#listadoUsuario" className="nav-link">Usuarios-Listado</Link>
-              </DropdownItem>
-              {/* <DropdownItem>
-                <Link to="/usuario" className="nav-link">Registrar Usuario</Link>
-              </DropdownItem> */}
-            </DropdownMenu>
-          </UncontrolledDropdown>
-      
-
          {/* <NavItem> */}
-          <UncontrolledDropdown nav inNavbar>
+          {/* <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Clientes</DropdownToggle>
             <DropdownMenu right>
               <DropdownItem>
@@ -71,8 +59,17 @@ class DefaultHeader extends Component {
               <DropdownItem divider />
               <DropdownItem>Detalles</DropdownItem>
             </DropdownMenu>
-          </UncontrolledDropdown>
+          </UncontrolledDropdown> */}
           {/* </NavItem> */}
+
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle nav caret>choferes</DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>
+                <Link to="/choferes" key="#choferes" className="nav-link">Listado</Link>
+              </DropdownItem>
+              </DropdownMenu>
+          </UncontrolledDropdown>
            
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>Vouchers</DropdownToggle>

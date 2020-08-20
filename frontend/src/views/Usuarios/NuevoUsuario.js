@@ -1,150 +1,89 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input} from 'reactstrap';
-
+import { Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody } from 'reactstrap';
 
 class NuevoUsuario extends React.Component {
-  
-
-  constructor(props) {
-      super(props);
-      this.state = {usuario:props.usuario,modal:props.modal};
-      this.handleChange = this.handleChange.bind(this);
-      this.onSubmit=this.onSubmit.bind(this);
-      // this.estadoInicial=this.estadoInicial.bind(this)
-      
+    constructor(props) {
+        super(props);
+        this.state = {
+            nombre: "",cuit:"", dni: "",
+            email:"", modal: false
+        }
+        this.handleInputChange = this.handleInputChange.bind(this);
+        this.cargarUsuario = this.cargarUsuario.bind(this);
     }
 
-    
-    // estadoInicial(){
-    //   this.setState({usuario: {id:"",nombre: "",cuit: "",email:"" }});
-
+    // componentWillMount() {
+    //     fetch(`http://localhost:8008/saludar`)
+    //         .then(res => res.json())
+    //         .then(mensaje => this.setState({ mensaje }));
     // }
 
-    componentWillReceiveProps(props) {
-      this.setState({usuario: props.usuario});
-      this.setState({usuarios: props.usuarios});
+    handleInputChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
     }
 
-    onSubmit(e){
-      this.insertar(e);
-      e.preventDefault();
-    
-   }
- 
-
-    handleChange(e){
-      // e.persist();
-      this.setState({
-        usuario:{...this.state.usuario,
-        [e.target.name]:e.target.value}
-      })
-      // console.log(this.state.usuario)
+    render() {
+        const formulario =
+            <Form className="margen-superior" onSubmit={this.cargarCliente}>
+                <FormGroup>
+                    <Label for="nombre">Ingrese su nombre:</Label>
+                    <Input type="text" name="nombre" size="50" id="nombre"
+                        value={this.state.nombre} onChange={this.handleInputChange} required />
+                    <FormText></FormText>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="cuit">Número de DNI:</Label>
+                    <Input type="number" name="cuit" size="8" id="cuit"
+                        value={this.state.cuit} onChange={this.handleInputChange}/>
+                    <FormText></FormText>
+                </FormGroup>
+                <FormGroup>
+                    <Label for="dni">Número de DNI:</Label>
+                    <Input type="number" name="dni" size="8" id="dni"
+                        value={this.state.dni} onChange={this.handleInputChange}/>
+                    <FormText></FormText>
+                </FormGroup>
+                
+                <Button type="submit" color="danger">Registrar</Button>
+                <Modal isOpen={this.state.modal} className={this.props.className}>
+                    <ModalHeader>Registración</ModalHeader>
+                    <ModalBody>
+                        El registro se ha hecho exitosamente
+                    </ModalBody>
+                </Modal>
+            </Form>
+        return (
+            <div class="ancho-form">
+                <br></br>
+                {formulario}
+            </div>
+        );
     }
 
-    // handleSubmit(event) {
-    //   fetch('http://localhost:8008/usuarios', {
-    //       method: 'put',
-    //       headers: {
-    //           'Accept': 'application/json, text/plain, */*',
-    //           'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(this.state.usuario)
-    //   }).then(res => this.props.usuarioChange(this.state.usuario))
-    //     .catch(res => console.log("ERROR-no actualiza") );
-
-    //   event.preventDefault();
-    // }
-
-    // insertar=()=>{
-    //   valorNuevo.id=this.getPeticiones().length+1
-    //   var lista= this.getPeticiones();
-    //   lista.push(valorNuevo)
-    // }
-    
-    insertar(e) {
-      var valorNuevo={...this.state.usuario}
-      var usuarios={...this.props.usuarios}
-      console.log(valorNuevo)
+    cargarUsuario(event) {
+        var usuario = {
+            nombre: this.state.nombre,
+            cuit:this.state.cuit,
+            dni: this.state.dni
+        }
+        console.log(JSON.stringify(usuario))
         fetch(`http://localhost:8008/usuarios`, {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(valorNuevo),
-        }) 
-        .then(res => res.json())
-        .then(res=> this.props.usuarios)
-        .then(res => this.props.actualizarModal())
-        // .then(res => this.setState(usuarios))
-        // .catch(err => console.log("Error:",err))
-        
-  
-    };
-
-
-  //   addHandler(event) {
-  //     fetch('http://localhost:3004/clientes', {
-  //         method: 'post',
-  //         headers: {
-  //             'Accept': 'application/json',
-  //             'Content-Type': 'application/json'
-  //         },
-  //           body: JSON.stringify(this.state.cliente)
-  //         })
-  //         .then(res =>this.props.listadoClientes)
-  //         .then(res => this.estadoInicial());
-  //         event.preventDefault();
-  // }
- 
-    // editarcliente = () => {
-    //   fetch("http://localhost:8888/clientes", {
-    //     method: "PUT",
-    //     body: JSON.stringify(this.state.cliente),
-    //     headers: {
-    //       Accept: "application/json",
-    //       "Content-Type": "application/json"
-    //     }
-    //   })
-    //     .then(this.props.listadoDeClientes)
-    //     .then(this.estadoInicial());
-    // };
-  
-  
-  
-
-    
-
-
-
-render() {
-
-  return (
-    <Form onSubmit={this.onSubmit} >  
-      <FormGroup>
-      <Label for="nombre">Nombre</Label>
-      <Input type="text" name="nombre" id="nombre" value={this.state.usuario.nombre ||''} 
-       onChange={this.handleChange} placeholder="ej.Lucía Adamkzick" />
-    </FormGroup>
-    <FormGroup>
-      <Label for="cuit">cuit</Label>
-      <Input type="text" name="cuit" id="cuit" value={this.state.usuario.cuit ||''}
-      onChange={this.handleChange} placeholder="30222888" />
-    </FormGroup>
-    <FormGroup >
-      <Label for="email"> email</Label>
-      <input type="text" name="email" id="email" value={this.state.usuario.email ||''}
-      onChange={this.handleChange}></input>
-    </FormGroup>
-    {/* <Button type="<submit></submit>" color="success" onClick={ this.handleSubmit.bind(this) }><i className="fa fa-dot-circle-o"></i> Submit</Button> */}
-    {/* <Button type="submit" outline color="success"><i className="fa fa-dot-circle-o"></i>Agregar usuario</Button>   */}
-    <Button type="submit" outline color="success"><i className="fa fa-dot-circle-o"></i>Agregar usuario</Button>  
-
-    </Form>
-)
-
-  }
-
+            method: 'POST', 
+            body: JSON.stringify(usuario), 
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(() => this.setState(prevState => ({
+                modal: !prevState.modal
+            })))
+        event.preventDefault();
+    }
 
 }
-export default NuevoUsuario
+
+export default NuevoUsuario;

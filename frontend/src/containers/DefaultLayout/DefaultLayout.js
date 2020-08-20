@@ -46,18 +46,22 @@ class DefaultLayout extends Component {
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
+            {/* costado izquierdo: */}
             <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
           </AppSidebar>
+
+         {/* adentro donde aparece la lista y form */}
           <main className="main">
             <AppBreadcrumb appRoutes={routes} router={router}/>
             <Container fluid>
-              <Suspense fallback={this.loading()}>
+              {/* <Suspense fallback={this.loading()}> */}
                 <Switch>
                   {routes.map((route, idx) => {
                     return route.component ? (
+    
                       <Route
                         key={idx}
                         path={route.path}
@@ -66,18 +70,21 @@ class DefaultLayout extends Component {
                         render={props => (
                           <route.component {...props} />
                         )} />
+                    
                     ) : (null);
                   })}
                   <Redirect from="/" to="/dashboard" />
                 </Switch>
-              </Suspense>
+              {/* </Suspense> */}
             </Container>
           </main>
+
+{/*       costado derecho:---
           <AppAside fixed>
             <Suspense fallback={this.loading()}>
               <DefaultAside />
             </Suspense>
-          </AppAside>
+          </AppAside> */}
         </div>
         <AppFooter>
           <Suspense fallback={this.loading()}>

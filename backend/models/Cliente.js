@@ -5,12 +5,12 @@ const {Empresa,Voucher} = require('./sequelizeConnection.js');
 
 module.exports = function(sequelize,DataTypes) {
 	const Cliente = sequelize.define('Cliente',{
-		id:{
-		    type:Sequelize.INTEGER,
-		 	autoIncrement: true,
-			primaryKey: true
+		// id:{
+		//     type:Sequelize.INTEGER,
+		//  	autoIncrement: true,
+		// 	primaryKey: true
 
-    	},
+    	// },
 		nombre: {
 		    type:Sequelize.STRING(35),
 		    allowNull: true
