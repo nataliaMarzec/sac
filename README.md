@@ -2,13 +2,11 @@ _...En proceso de desarrollo..._
 
 ***
 
-[![Build Status-17-test](https://travis-ci.org/nataliaMarzec/sac.svg?branch=17-testeo)](https://travis-ci.org/nataliaMarzec/sac)
-
 [![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
 
 [![Closed issues][issues-shield]](https://github.com/nataliaMarzec/sac/issues)
 
-[![npm version](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
+[![ver sequelize-cli](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
 
 [![License][license-shield]](https://github.com/nataliaMarzec/master/LICENSE)
 
