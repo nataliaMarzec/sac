@@ -6,7 +6,7 @@
    
  # Instalar :
 
-  `npm install --save @afipsdk/afip.js`
+  instalación para afip aqui:
 
   `npm install node-soap-client --save`
 
