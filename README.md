@@ -45,38 +45,6 @@ _...En proceso de desarrollo..._
 
 
 
-## Instalaciones principales:
-  ~~~
-  install node
-  curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-  sudo apt-get install -y nodejs 
-  npm init 
-
-
-  ~~~
-luego...
-~~~
- install yarn
- curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
- echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
- sudo apt-get update && sudo apt-get install yarn
-~~~
-luego..
-~~~
-npm init
-npm install uuid --save
-~~~
-testeando con..
-~~~
-npm install jest --save-dev
-npm test
-~~~
-y para convertir nuestro servidor en un servidor Rest
-~~~
-npm install express body-parser --save
-~~~
-___
- 
 ### Ver instalaciones sequelize.md:
     Instación de faker para generar datos en seed sequelize :
     
