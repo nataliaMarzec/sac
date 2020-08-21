@@ -43,5 +43,7 @@ _...En proceso de desarrollo..._
 
 ![Esquema Base de datos](tablas.png)
 
+[Trello](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)
+
 
 
