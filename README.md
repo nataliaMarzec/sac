@@ -1,50 +1,43 @@
 _...En proceso de desarrollo..._
 
 ***
+***
 
-<span style="color:blue"> ***SAC*** Sistema Administrativo Contable </span>
+<span style="color:blue"> # SAC Sistema Administrativo Contable </span>
 
+***
+***
 
-## *Presentación*:
+***Presentación***:
  
  Sac es un software genérico que administra tareas contables. 
  Permite observar los movimientos de la entidad laboral.
  Otorga flexibilidad, simple gestión, sin necesidad de conocimientos contables.
  
 
-## *Sus funcionalidades generales son*:
+***Sus funcionalidades generales son***:
+ 
+- Proveer información sobre los movimientos
+- Cargar los datos del cliente
+- Cargar datos de ventas
+- Cargar datos de cobros
+- Cargar artículos
 
-- En el transcurso del desarrollo del código deberá ser acorde al sistema Afip, en menor o mayor medida. Ya sea
- sólo con los requerimientos básicos o más complejos si la situación curricular amerita.
-- Cargar los libros ventas y proveedores 
-- Unificar ambos libros en el libro principal
-- Verificar que el sistema se cargue de manera directa a la afip
-- Tener en cuenta que la clases de facturación se han ampliado agregando al standard de facturación las electrónicas
+***Requisitos:
 
-## Requisitos:
-- Crear formulario
-- Crear la entidad Proveedor(ej: YPF)
-- Registrar la entidad Proveedor en formulario
-- Modificar la entidad Proveedor
-- Eliminar la entidad Proveedor
-- Crear la entidad Ventas(Servicios al cliente)
-- Registrar la entidad Ventas en formulario
-- Modificar la entidad Provedor
-- Eliminar la entidad Ventas
-- Crear la facturación en ventas
-- Modificar facturación en ventas
-- Crear la facturación a proveedores
-- Modificar facturación a proveedores
-- Crear Libro Proveedores(Dividido según cuentas)
-- Cargas detalles Proveedores
-- Crear Libro Ventas
-- Cargar detalles Ventas
-- Calcular Percepciones según convenio
-- Crear Libro Principal
-- Cargar Libro Principal
-- Vincular Libro Principal a Sistema Afip
-- Crear backup(opcional)
-- Creación cvs(opcional)
+- Crear la entidad Clientes(compradores)
+- Crear la entidad Artículos
+- Crear la entidad Domicilio
+- Registrar la entidad Clientes en formulario
+- ABM Clientes:
+   * Alta
+   * Baja
+   * Modificación
+- ABM Artículos:
+   * Alta
+   * Baja
+   * Modificación
+
 
 ## Tablas:
 
@@ -136,8 +129,6 @@ ___
  ## Recursos:
  
 [mysql](https://www.jveweb.net/archivo/2011/03/manejando-mysql-desde-la-linea-de-comandos.html)
-
-[JiraSoftware](https://software-a-medida.atlassian.net)
 
 [Trello](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)
 
