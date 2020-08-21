@@ -1,29 +1,14 @@
 _...En proceso de desarrollo..._
 
 ***
-
-// [![Build Status](https://travis-ci.org/nataliaMarzec/sac.svg?branch=master)](https://travis-ci.org/nataliaMarzec/sac)
-
-[![Closed issues][issues-shield]](https://github.com/nataliaMarzec/sac/issues)
-
-[![ver sequelize-cli](https://badge.fury.io/js/sequelize-cli.svg)](https://badge.fury.io/js/sequelize-cli)
-
-[![License][license-shield]](https://github.com/nataliaMarzec/master/LICENSE)
-
-[![Integración Sequelize-md]](md/sequelize.md)
-
-# SAC Sistema Administrativo Contable
+<span style="color:green"># SAC Sistema Administrativo Contable</span>
 
 ## Presentación:
-
- En este proyecto se desarrollará un sistema de administración contable con vinculación directa a la Afip.
- Dadas las diferentes entidades Proveedor, Cliente y sus propios datos relacionados se mostrará su respectiva facturación la cual se volcará 
-en libros junto a los detalles básicos de los cuales se deducirá las percepciones según convenio.
- La idea es obtener un producto software genérico con orientación a la administración contable que cumplan y sastifagan las solicitudes
-del usuario de manera flexible y simple para que sea de fácil gestión, incluso sin tener conocimientos de administración.
-
-
-  *falta foto y url!!!!!!!!!!!
+ 
+ Sac es un software genérico que administra tareas contables. 
+ Permite observar los movimientos de la entidad laboral.
+ Otorga flexibilidad, simple gestión, sin necesidad de conocimientos contables.
+ 
 
 ## Sus funcionalidades generales son:
 
