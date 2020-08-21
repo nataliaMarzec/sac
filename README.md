@@ -29,6 +29,7 @@ _...En proceso de desarrollo..._
 - Crear la entidad Artículos
 - Crear la entidad Domicilio
 - Registrar la entidad Clientes en formulario
+- Listar Clientes
 - ABM Clientes:
    * Alta
    * Baja
