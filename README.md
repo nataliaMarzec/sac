@@ -6,16 +6,8 @@ _...En proceso de desarrollo..._
 <span style="color:blue"> ***SAC*** Sistema Administrativo Contable </span>
 
 ***
-{
-  label: 'build',  // (Optional) Badge label
-  message: 'passed',  // (Required) Badge message
-  labelColor: '#555',  // (Optional) Label color
-  color: '#4c1',  // (Optional) Message color
 
-  // (Optional) One of: 'plastic', 'flat', 'flat-square', 'for-the-badge' or 'social'
-  // Each offers a different visual design.
-  style: 'flat',
-}
+- ![Trello][yellow](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)
 
 
 ***
@@ -56,7 +48,7 @@ _...En proceso de desarrollo..._
 
 ![Esquema Base de datos](tablas.png)
 
-[Trello](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)
+
 
 
 
