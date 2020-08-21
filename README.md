@@ -1,7 +1,8 @@
 _...En proceso de desarrollo..._
 
 ***
-<span style="color:green"># SAC Sistema Administrativo Contable</span>
+<span style="color:blue"> *SAC Sistema Administrativo Contable*</span>
+
 
 ## Presentación:
  
