@@ -2,17 +2,17 @@ _...En proceso de desarrollo..._
 
 ***
 
-<span style="color:blue"> *SAC Sistema Administrativo Contable*</span>
+<span style="color:blue"> ***SAC*** Sistema Administrativo Contable </span>
 
 
-## Presentación:
+## *Presentación*:
  
  Sac es un software genérico que administra tareas contables. 
  Permite observar los movimientos de la entidad laboral.
  Otorga flexibilidad, simple gestión, sin necesidad de conocimientos contables.
  
 
-## Sus funcionalidades generales son:
+## *Sus funcionalidades generales son*:
 
 - En el transcurso del desarrollo del código deberá ser acorde al sistema Afip, en menor o mayor medida. Ya sea
  sólo con los requerimientos básicos o más complejos si la situación curricular amerita.
