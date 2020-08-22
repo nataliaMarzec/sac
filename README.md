@@ -18,7 +18,7 @@ _...En proceso de desarrollo..._
 
 ***Presentación***:
  
- Sac es un software genérico que administra tareas contables, a modo de organizador comercial.
+ SAC es un software genérico que administra tareas contables, a modo de organizador comercial.
  Permite observar los movimientos de la entidad laboral.
  Otorga flexibilidad, simple gestión, sin necesidad de conocimientos contables.
  
