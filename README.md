@@ -31,7 +31,7 @@ _...En proceso de desarrollo..._
 - Cargar datos de cobros
 - Cargar artículos
 
-***Requisitos***:
+***Requerimientos***:
 
 - Crear la entidad Clientes(compradores)
 - Crear la entidad Artículos
