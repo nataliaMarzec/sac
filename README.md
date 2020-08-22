@@ -7,7 +7,7 @@ _...En proceso de desarrollo..._
 
 ***
 
-[![trello](https://trello.com/b/wgBQkeNf/sac)]
+[trello](https://trello.com/b/wgBQkeNf/sac)
 
 
 
