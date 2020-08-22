@@ -7,7 +7,7 @@ _...En proceso de desarrollo..._
 
 ***
 
-[![trello](https://img.shields.io/badge/yellow-yellow.svg)]](https://trello.com/b/wgBQkeNf/sac-sistema-administrativo-contable)]
+[![trello](https://img.shields.io/badge/trello-yellow.svg)]](https://trello.com/b/wgBQkeNf/sac)]
 
 
 
